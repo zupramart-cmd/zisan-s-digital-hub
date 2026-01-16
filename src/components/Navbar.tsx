@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, User, GraduationCap, Briefcase, Award, Wrench, Users, Mail, BookOpen, FileText, TrendingUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link, useLocation } from 'react-router-dom';
+import { portfolioData } from '@/data/portfolioData';
 
 const navItems = [
   { key: 'profile', icon: User, href: '#profile' },
@@ -45,12 +46,17 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo - Using initials instead of "Portfolio" */}
           <Link 
             to="/" 
-            className="text-lg font-bold text-primary hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 text-lg font-bold text-primary hover:opacity-80 transition-opacity"
           >
-            Portfolio
+            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold text-sm">
+              RZ
+            </div>
+            <span className="hidden sm:block text-foreground">
+              {language === 'en' ? portfolioData.profile.name.split(' ').slice(-1)[0] : 'জিসান'}
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
