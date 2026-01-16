@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { toast } from 'sonner';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ShieldAlert } from 'lucide-react';
 
 interface SecurityProviderProps {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ const SecurityProvider: React.FC<SecurityProviderProps> = ({ children }) => {
   useEffect(() => {
     const showSecurityToast = () => {
       toast(t('security.copyProhibited'), {
+        icon: <ShieldAlert size={18} className="text-primary" />,
         style: {
           background: 'hsl(var(--accent))',
           color: 'hsl(var(--accent-foreground))',

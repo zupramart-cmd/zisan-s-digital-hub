@@ -2,6 +2,7 @@ import React from 'react';
 import { Briefcase, Calendar, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { portfolioData } from '@/data/portfolioData';
+import ContributionChart from '@/components/ContributionChart';
 
 const ExperienceSection: React.FC = () => {
   const { t, language } = useLanguage();
@@ -59,6 +60,9 @@ const ExperienceSection: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* GitHub-style Contribution Chart */}
+        <ContributionChart />
       </div>
     </section>
   );
