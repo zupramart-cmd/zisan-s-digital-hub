@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, Github, Facebook, Youtube, MessageCircle, Send, Heart, ArrowUp, Sparkles } from 'lucide-react';
+import { Mail, Linkedin, Github, Facebook, Youtube, MessageCircle, Send, ArrowUp, Sparkles, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { portfolioData } from '@/data/portfolioData';
 import { toast } from 'sonner';
@@ -159,11 +160,13 @@ const Footer: React.FC = () => {
               {language === 'en' ? ' All rights reserved.' : ' সর্বস্বত্ব সংরক্ষিত।'}
             </p>
             <div className="flex items-center gap-3">
-              <span className="text-xs text-muted-foreground flex items-center gap-1">
-                {language === 'en' ? 'Made with' : 'তৈরি'} 
-                <Heart size={12} className="text-primary fill-primary" /> 
-                {language === 'en' ? 'in Bangladesh' : 'বাংলাদেশে'}
-              </span>
+              <Link 
+                to="/privacy-policy"
+                className="text-xs text-muted-foreground hover:text-primary transition-colors flex items-center gap-1"
+              >
+                <Shield size={12} />
+                {language === 'en' ? 'Privacy Policy' : 'গোপনীয়তা নীতি'}
+              </Link>
               <button
                 onClick={scrollToTop}
                 className="p-1.5 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-lg transition-all"

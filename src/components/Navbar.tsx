@@ -46,14 +46,8 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Home Link - No Logo */}
-          <Link 
-            to="/" 
-            className="p-2 text-foreground/70 hover:text-primary hover:bg-accent rounded-lg transition-all"
-            aria-label="Home"
-          >
-            <User size={22} />
-          </Link>
+          {/* Empty placeholder for spacing */}
+          <div className="w-10" />
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
