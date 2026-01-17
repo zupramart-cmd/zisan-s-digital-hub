@@ -72,14 +72,7 @@ const CertificatesSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Navigation Arrows on Image */}
-                <button
-                  onClick={goToPrevious}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-card/90 backdrop-blur-sm rounded-full border border-border shadow-md hover:bg-card transition-colors"
-                  aria-label="Previous certificate"
-                >
-                  <ChevronLeft className="text-primary w-5 h-5" />
-                </button>
+              
                 
                 <button
                   onClick={goToNext}
