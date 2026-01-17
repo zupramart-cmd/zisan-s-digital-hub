@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Award, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { portfolioData } from '@/data/portfolioData';
 
@@ -14,7 +14,7 @@ const CertificatesSection: React.FC = () => {
     if (!isPaused) {
       intervalRef.current = setInterval(() => {
         setCurrentIndex((prev) => (prev + 1) % certificates.length);
-      }, 3000);
+      }, 3500);
     }
 
     return () => {
@@ -37,84 +37,134 @@ const CertificatesSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <h2 className="section-title animate-fade-in">{t('certificates.title')}</h2>
 
-        <div
-          className="mt-8 md:mt-12 relative"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-        >
-          {/* Certificate Card with Arrows on sides of dots */}
-          <div className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-in-out"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {certificates.map((cert) => (
-                <div
-                  key={cert.id}
-                  className="w-full flex-shrink-0 px-2 md:px-4"
-                >
-                  {/* Fixed rectangular rounded layout */}
-                  <div className="bg-card rounded-xl border border-border p-4 md:p-6 shadow-sm max-w-lg mx-auto">
-                    <div className="flex items-start gap-3 md:gap-4">
-                      <div className="p-2 md:p-3 bg-primary/10 rounded-lg shrink-0">
-                        <Award className="text-primary w-6 h-6 md:w-8 md:h-8" />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <span className="text-xs text-muted-foreground">
-                          #{cert.id}
-                        </span>
-                        <h3 className="text-base md:text-lg font-semibold text-foreground leading-tight mt-0.5">
-                          {language === 'en' ? cert.name : cert.nameBn}
-                        </h3>
-                        <a
-                          href={cert.verifyLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 text-sm text-primary hover:underline mt-2"
-                        >
-                          <ExternalLink size={14} />
-                          {t('certificates.verify')}
-                        </a>
-                      </div>
-                    </div>
+        <div className="mt-8 md:mt-12">
+          {/* Main Certificate Display */}
+          <div
+            className="relative max-w-4xl mx-auto"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {/* Certificate Card with Image */}
+            <div className="bg-card rounded-2xl border border-border shadow-lg overflow-hidden">
+              {/* Certificate Image */}
+              <div className="relative aspect-[16/10] bg-gradient-to-br from-primary/5 to-accent/20 overflow-hidden">
+                <img
+                  src={certificates[currentIndex].image}
+                  alt={language === 'en' ? certificates[currentIndex].name : certificates[currentIndex].nameBn}
+                  className="w-full h-full object-contain p-4 transition-transform duration-500"
+                />
+                
+                {/* Overlay Controls */}
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                    <h3 className="text-lg md:text-xl font-bold text-white mb-2">
+                      {language === 'en' ? certificates[currentIndex].name : certificates[currentIndex].nameBn}
+                    </h3>
+                    <a
+                      href={certificates[currentIndex].verifyLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition-colors text-sm"
+                    >
+                      <ExternalLink size={16} />
+                      {t('certificates.verify')}
+                    </a>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Navigation: Arrow - Dots - Arrow */}
-          <div className="flex items-center justify-center gap-3 mt-6">
-            <button
-              onClick={goToPrevious}
-              className="p-2 bg-card rounded-full border border-border shadow-sm hover:bg-accent transition-colors"
-              aria-label="Previous certificate"
-            >
-              <ChevronLeft className="text-primary w-5 h-5" />
-            </button>
-            
-            <div className="flex gap-1.5">
+                {/* Navigation Arrows */}
+                <button
+                  onClick={goToPrevious}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-card/90 backdrop-blur-sm rounded-full border border-border shadow-md hover:bg-card transition-colors"
+                  aria-label="Previous certificate"
+                >
+                  <ChevronLeft className="text-primary w-5 h-5" />
+                </button>
+                
+                <button
+                  onClick={goToNext}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-card/90 backdrop-blur-sm rounded-full border border-border shadow-md hover:bg-card transition-colors"
+                  aria-label="Next certificate"
+                >
+                  <ChevronRight className="text-primary w-5 h-5" />
+                </button>
+
+                {/* Pause/Play Button */}
+                <button
+                  onClick={() => setIsPaused(!isPaused)}
+                  className="absolute top-3 right-3 p-2 bg-card/90 backdrop-blur-sm rounded-full border border-border shadow-md hover:bg-card transition-colors"
+                  aria-label={isPaused ? 'Play' : 'Pause'}
+                >
+                  {isPaused ? (
+                    <Play className="text-primary w-4 h-4" />
+                  ) : (
+                    <Pause className="text-primary w-4 h-4" />
+                  )}
+                </button>
+              </div>
+
+              {/* Certificate Info Bar */}
+              <div className="p-4 border-t border-border bg-accent/20">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-xs text-muted-foreground">
+                      {currentIndex + 1} / {certificates.length}
+                    </span>
+                    <h4 className="font-semibold text-foreground text-sm md:text-base mt-0.5">
+                      {language === 'en' ? certificates[currentIndex].name : certificates[currentIndex].nameBn}
+                    </h4>
+                  </div>
+                  <a
+                    href={certificates[currentIndex].verifyLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 px-3 py-1.5 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity text-sm"
+                  >
+                    <ExternalLink size={14} />
+                    <span className="hidden sm:inline">{t('certificates.verify')}</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Dots Navigation */}
+            <div className="flex items-center justify-center gap-1.5 mt-6">
               {certificates.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
+                  className={`transition-all duration-300 rounded-full ${
                     index === currentIndex
-                      ? 'bg-primary w-5'
-                      : 'bg-muted hover:bg-muted-foreground/50'
+                      ? 'w-6 h-2 bg-primary'
+                      : 'w-2 h-2 bg-muted hover:bg-muted-foreground/50'
                   }`}
                   aria-label={`Go to certificate ${index + 1}`}
                 />
               ))}
             </div>
+          </div>
 
-            <button
-              onClick={goToNext}
-              className="p-2 bg-card rounded-full border border-border shadow-sm hover:bg-accent transition-colors"
-              aria-label="Next certificate"
-            >
-              <ChevronRight className="text-primary w-5 h-5" />
-            </button>
+          {/* Thumbnail Strip */}
+          <div className="mt-8 max-w-4xl mx-auto">
+            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+              {certificates.map((cert, index) => (
+                <button
+                  key={cert.id}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${
+                    index === currentIndex
+                      ? 'border-primary shadow-md'
+                      : 'border-border opacity-60 hover:opacity-100'
+                  }`}
+                >
+                  <img
+                    src={cert.image}
+                    alt={language === 'en' ? cert.name : cert.nameBn}
+                    className="w-full h-full object-cover"
+                  />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
