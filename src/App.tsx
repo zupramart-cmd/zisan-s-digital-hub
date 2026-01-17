@@ -11,6 +11,7 @@ import Chatbot from "@/components/Chatbot";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import Research from "./pages/Research";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
                   <Route path="/" element={<Index />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/research" element={<Research />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>

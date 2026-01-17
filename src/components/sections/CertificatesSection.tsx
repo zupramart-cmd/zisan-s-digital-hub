@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ExternalLink, ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
+import { ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { portfolioData } from '@/data/portfolioData';
 
@@ -72,7 +72,7 @@ const CertificatesSection: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Navigation Arrows */}
+                {/* Navigation Arrows on Image */}
                 <button
                   onClick={goToPrevious}
                   className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-card/90 backdrop-blur-sm rounded-full border border-border shadow-md hover:bg-card transition-colors"
@@ -87,19 +87,6 @@ const CertificatesSection: React.FC = () => {
                   aria-label="Next certificate"
                 >
                   <ChevronRight className="text-primary w-5 h-5" />
-                </button>
-
-                {/* Pause/Play Button */}
-                <button
-                  onClick={() => setIsPaused(!isPaused)}
-                  className="absolute top-3 right-3 p-2 bg-card/90 backdrop-blur-sm rounded-full border border-border shadow-md hover:bg-card transition-colors"
-                  aria-label={isPaused ? 'Play' : 'Pause'}
-                >
-                  {isPaused ? (
-                    <Play className="text-primary w-4 h-4" />
-                  ) : (
-                    <Pause className="text-primary w-4 h-4" />
-                  )}
                 </button>
               </div>
 
@@ -127,20 +114,38 @@ const CertificatesSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Dots Navigation */}
-            <div className="flex items-center justify-center gap-1.5 mt-6">
-              {certificates.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`transition-all duration-300 rounded-full ${
-                    index === currentIndex
-                      ? 'w-6 h-2 bg-primary'
-                      : 'w-2 h-2 bg-muted hover:bg-muted-foreground/50'
-                  }`}
-                  aria-label={`Go to certificate ${index + 1}`}
-                />
-              ))}
+            {/* Navigation Controls - Arrows and Dots */}
+            <div className="flex items-center justify-center gap-4 mt-6">
+              <button
+                onClick={goToPrevious}
+                className="p-2 bg-card border border-border rounded-full shadow-sm hover:bg-accent transition-colors"
+                aria-label="Previous certificate"
+              >
+                <ChevronLeft className="text-primary w-5 h-5" />
+              </button>
+              
+              <div className="flex items-center gap-1.5">
+                {certificates.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`transition-all duration-300 rounded-full ${
+                      index === currentIndex
+                        ? 'w-6 h-2 bg-primary'
+                        : 'w-2 h-2 bg-muted hover:bg-muted-foreground/50'
+                    }`}
+                    aria-label={`Go to certificate ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              <button
+                onClick={goToNext}
+                className="p-2 bg-card border border-border rounded-full shadow-sm hover:bg-accent transition-colors"
+                aria-label="Next certificate"
+              >
+                <ChevronRight className="text-primary w-5 h-5" />
+              </button>
             </div>
           </div>
 
