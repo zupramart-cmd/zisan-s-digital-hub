@@ -1,18 +1,40 @@
 import React, { useState } from 'react';
-import { Mail, Linkedin, Github, Facebook, Youtube, MessageCircle, Send, Heart, ArrowUp } from 'lucide-react';
+import { Mail, Linkedin, Github, Facebook, Youtube, MessageCircle, Send, Heart, ArrowUp, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { portfolioData } from '@/data/portfolioData';
 import { toast } from 'sonner';
 
 const Footer: React.FC = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   const { social, profile } = portfolioData;
   const [email, setEmail] = useState('');
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (email) {
-      toast.success(language === 'en' ? 'Thank you for subscribing!' : 'সাবস্ক্রাইব করার জন্য ধন্যবাদ!');
+      toast(
+        <div className="flex items-center gap-3">
+          <div className="p-2 bg-amber-100 rounded-full">
+            <Sparkles className="w-5 h-5 text-amber-500" />
+          </div>
+          <div>
+            <p className="font-semibold text-foreground">
+              {language === 'en' ? 'Successfully Subscribed!' : 'সফলভাবে সাবস্ক্রাইব হয়েছে!'}
+            </p>
+            <p className="text-sm text-muted-foreground">
+              {language === 'en' ? 'Thank you for joining our newsletter.' : 'নিউজলেটারে যোগদানের জন্য ধন্যবাদ।'}
+            </p>
+          </div>
+        </div>,
+        {
+          style: {
+            background: 'hsl(var(--card))',
+            border: '2px solid rgb(251 191 36)',
+            boxShadow: '0 4px 20px rgba(251, 191, 36, 0.2)',
+          },
+          duration: 4000,
+        }
+      );
       setEmail('');
     }
   };
@@ -43,38 +65,11 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-card border-t border-border">
       {/* Main Footer Content */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Brand & Signature */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold">
-                RZ
-              </div>
-              <div>
-                <h3 className="font-bold text-foreground">
-                  {language === 'en' ? profile.name.split(' ').slice(-1)[0] : 'জিসান'}
-                </h3>
-                <p className="text-xs text-muted-foreground">
-                  {language === 'en' ? 'Web Developer' : 'ওয়েব ডেভেলপার'}
-                </p>
-              </div>
-            </div>
-            <img
-              src={profile.signatureImage}
-              alt="Signature"
-              className="h-10 opacity-60 mb-4"
-            />
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              {language === 'en' 
-                ? 'Creating smart digital solutions that simplify work and empower communities.' 
-                : 'স্মার্ট ডিজিটাল সমাধান তৈরি করি যা কাজ সহজ করে এবং সম্প্রদায়কে ক্ষমতায়িত করে।'}
-            </p>
-          </div>
-
+      <div className="container mx-auto px-4 py-10">
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">
+            <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wide">
               {language === 'en' ? 'Quick Links' : 'দ্রুত লিঙ্ক'}
             </h4>
             <ul className="space-y-2">
@@ -93,7 +88,7 @@ const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">
+            <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wide">
               {language === 'en' ? 'Contact' : 'যোগাযোগ'}
             </h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
@@ -113,65 +108,57 @@ const Footer: React.FC = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">
+            <h4 className="font-semibold text-foreground mb-4 text-sm uppercase tracking-wide">
               {language === 'en' ? 'Stay Updated' : 'আপডেট থাকুন'}
             </h4>
-            <p className="text-sm text-muted-foreground mb-3">
-              {language === 'en' 
-                ? 'Subscribe for updates and news.' 
-                : 'আপডেট এবং খবরের জন্য সাবস্ক্রাইব করুন।'}
-            </p>
             <form onSubmit={handleSubscribe} className="flex gap-2">
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder={t('footer.emailPlaceholder')}
+                placeholder={language === 'en' ? 'Enter email' : 'ইমেইল দিন'}
                 required
                 className="flex-1 px-3 py-2 bg-background border border-border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none text-sm"
               />
               <button
                 type="submit"
-                className="px-3 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity"
+                className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity"
                 aria-label="Subscribe"
               >
                 <Send size={16} />
               </button>
             </form>
-          </div>
-        </div>
-
-        {/* Social Icons */}
-        <div className="mt-8 pt-8 border-t border-border">
-          <div className="flex flex-wrap justify-center gap-3 mb-6">
-            {socialIcons.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <a
-                  key={index}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 bg-accent/50 text-muted-foreground hover:text-primary hover:bg-accent rounded-lg transition-all"
-                  aria-label={item.name}
-                >
-                  <Icon size={18} />
-                </a>
-              );
-            })}
+            {/* Social Icons */}
+            <div className="flex flex-wrap gap-2 mt-4">
+              {socialIcons.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={index}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 bg-accent/50 text-muted-foreground hover:text-primary hover:bg-accent rounded-lg transition-all"
+                    aria-label={item.name}
+                  >
+                    <Icon size={16} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Bottom Bar */}
       <div className="bg-accent/30 border-t border-border">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-2">
             <p className="text-xs text-muted-foreground text-center sm:text-left">
               © {currentYear} {language === 'en' ? profile.name : profile.nameBn}. 
               {language === 'en' ? ' All rights reserved.' : ' সর্বস্বত্ব সংরক্ষিত।'}
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <span className="text-xs text-muted-foreground flex items-center gap-1">
                 {language === 'en' ? 'Made with' : 'তৈরি'} 
                 <Heart size={12} className="text-primary fill-primary" /> 
@@ -179,10 +166,10 @@ const Footer: React.FC = () => {
               </span>
               <button
                 onClick={scrollToTop}
-                className="p-2 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-lg transition-all"
+                className="p-1.5 bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground rounded-lg transition-all"
                 aria-label="Scroll to top"
               >
-                <ArrowUp size={16} />
+                <ArrowUp size={14} />
               </button>
             </div>
           </div>

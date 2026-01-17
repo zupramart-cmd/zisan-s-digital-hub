@@ -46,17 +46,13 @@ const Navbar: React.FC = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo - Using initials instead of "Portfolio" */}
+          {/* Home Link - No Logo */}
           <Link 
             to="/" 
-            className="flex items-center gap-2 text-lg font-bold text-primary hover:opacity-80 transition-opacity"
+            className="p-2 text-foreground/70 hover:text-primary hover:bg-accent rounded-lg transition-all"
+            aria-label="Home"
           >
-            <div className="w-9 h-9 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold text-sm">
-              RZ
-            </div>
-            <span className="hidden sm:block text-foreground">
-              {language === 'en' ? portfolioData.profile.name.split(' ').slice(-1)[0] : 'জিসান'}
-            </span>
+            <User size={22} />
           </Link>
 
           {/* Desktop Navigation */}
