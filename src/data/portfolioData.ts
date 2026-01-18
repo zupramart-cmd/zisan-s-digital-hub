@@ -279,9 +279,9 @@ export const portfolioData = {
   },
 
   family: {
-    father: { relation: "Father", relationBn: "পিতা", name: "Md Rokibul Hasan Shekh", nameBn: "মোঃ রকিবুল হাসান শেখ", occupation: "Businessman", occupationBn: "ব্যবসায়ী" },
-    mother: { relation: "Mother", relationBn: "মাতা", name: "Mst. Zosna Khatun", nameBn: "মোছাঃ জোসনা খাতুন", occupation: "Homemaker", occupationBn: "গৃহিণী" },
-    siblings: { count: 1, countBn: "১", name: "Raisa Jannat", nameBn: "রাইসা জান্নাত", relation: "Younger Sister", relationBn: "ছোট বোন" },
+    father: { relation: "Father", relationBn: "পিতা", name: "Md Rokibul Hasan Shekh", nameBn: "মোঃ রকিবুল হাসান শেখ"},
+    mother: { relation: "Mother", relationBn: "মাতা", name: "Mst. Zosna Khatun", nameBn: "মোছাঃ জোসনা খাতুন"},
+    siblings: { relation: "Younger Sister", relationBn: "ছোট বোন", name: "Raisa Jannat", nameBn: "রাইসা জান্নাত"},
   },
 
   personal: {

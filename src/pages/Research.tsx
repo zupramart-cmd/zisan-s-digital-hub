@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Tag, FileText, Lightbulb, Cog, BarChart3, CheckCircle, BookMarked, Users, Clock, Target, Layers } from 'lucide-react';
+import { BookOpen, Tag, FileText, Lightbulb, Cog, BarChart3, CheckCircle, BookMarked, Layers } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { researchPapers } from '@/data/portfolioData';
 
@@ -123,25 +123,6 @@ const Research: React.FC = () => {
               </section>
             </article>
           ))}
-        </div>
-
-        {/* Research Highlights */}
-        <div className="mt-10 grid md:grid-cols-3 gap-4">
-          <div className="bg-card rounded-xl p-5 border border-border text-center">
-            <Users className="w-8 h-8 text-primary mx-auto mb-2" />
-            <p className="text-2xl font-bold text-foreground">68K+</p>
-            <p className="text-xs text-muted-foreground">{language === 'en' ? 'Community Members' : 'সম্প্রদায় সদস্য'}</p>
-          </div>
-          <div className="bg-card rounded-xl p-5 border border-border text-center">
-            <Clock className="w-8 h-8 text-primary mx-auto mb-2" />
-            <p className="text-2xl font-bold text-foreground">40%</p>
-            <p className="text-xs text-muted-foreground">{language === 'en' ? 'Faster Response' : 'দ্রুত প্রতিক্রিয়া'}</p>
-          </div>
-          <div className="bg-card rounded-xl p-5 border border-border text-center">
-            <Target className="w-8 h-8 text-primary mx-auto mb-2" />
-            <p className="text-2xl font-bold text-foreground">5K+</p>
-            <p className="text-xs text-muted-foreground">{language === 'en' ? 'Donations Facilitated' : 'সুবিধাপ্রাপ্ত দান'}</p>
-          </div>
         </div>
       </div>
     </main>

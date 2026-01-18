@@ -35,9 +35,6 @@ const FamilySection: React.FC = () => {
                   <p className="font-semibold text-foreground">
                     {language === 'en' ? family.father.name : family.father.nameBn}
                   </p>
-                  <p className="text-sm text-muted-foreground">
-                    {language === 'en' ? family.father.occupation : family.father.occupationBn}
-                  </p>
                 </div>
               </div>
 
@@ -53,23 +50,20 @@ const FamilySection: React.FC = () => {
                   <p className="font-semibold text-foreground">
                     {language === 'en' ? family.mother.name : family.mother.nameBn}
                   </p>
-                  <p className="text-sm text-muted-foreground">
-                    {language === 'en' ? family.mother.occupation : family.mother.occupationBn}
-                  </p>
                 </div>
               </div>
 
               {/* Siblings */}
-              <div className="flex items-center gap-4 p-4 bg-secondary/50 rounded-xl">
+              <div className="flex items-start gap-4 p-4 bg-secondary/50 rounded-xl">
                 <div className="p-2 bg-primary/10 rounded-lg">
-                  <Users className="text-primary" size={20} />
+                  <User className="text-primary" size={20} />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground">
-                    {language === 'en' ? 'Siblings' : 'ভাইবোন'}
+                    {language === 'en' ? family.siblings.relation : family.siblings.relationBn}
                   </p>
                   <p className="font-semibold text-foreground">
-                    {language === 'en' ? family.siblings.count : family.siblings.countBn}
+                    {language === 'en' ? family.siblings.name : family.siblings.nameBn}
                   </p>
                 </div>
               </div>
