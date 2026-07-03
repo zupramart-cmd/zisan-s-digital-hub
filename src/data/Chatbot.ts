@@ -1,438 +1,344 @@
 // Chatbot Data - All chatbot responses (English & Bangla)
 
 export const chatbotData = {
-  // Greeting messages
   greeting: {
-    en: "Hello! I'm here to tell you about Md Ridoan Mahmud Zisan. How can I help you today?\n\nYou can ask about:\n• Profile\n• Education\n• Experience\n• Projects\n• Certificates\n• Skills\n• Family\n• Contact\n• Research\n• Blog\n• Social Media",
-    bn: "হ্যালো! আমি এখানে মোঃ রিদোয়ান মাহমুদ জিসান সম্পর্কে বলতে এসেছি। আজ আপনাকে কীভাবে সাহায্য করতে পারি?\n\nআপনি জিজ্ঞাসা করতে পারেন:\n• প্রোফাইল\n• শিক্ষা\n• অভিজ্ঞতা\n• প্রকল্প\n• সার্টিফিকেট\n• দক্ষতা\n• পরিবার\n• যোগাযোগ\n• গবেষণা\n• ব্লগ\n• সোশ্যাল মিডিয়া"
+    en: "Hello! I'm Ghost AI, Ridoan Zisan's virtual assistant. Ask me anything about him!\n\nYou can ask about:\n• Profile\n• Education\n• Skills\n• Experience\n• Projects\n• Certificates\n• Contact\n• OnonnoBit Agency",
+    bn: "হ্যালো! আমি ঘোস্ট এআই, রিদোয়ান জিসানের ভার্চুয়াল সহকারী। তার সম্পর্কে কিছু জিজ্ঞাসা করুন!\n\nআপনি জিজ্ঞাসা করতে পারেন:\n• প্রোফাইল\n• শিক্ষা\n• দক্ষতা\n• অভিজ্ঞতা\n• প্রজেক্ট\n• সার্টিফিকেট\n• যোগাযোগ\n• OnonnoBit এজেন্সি"
   },
 
-  // Profile information
   profile: {
-    en: `I was created by Md Ridoan Mahmud Zisan, a Self-Driven Web Developer & IT Specialist from Bogura, Bangladesh.
+    en: `Md Ridoan Mahmud Zisan is a Web Application Developer and Founder of OnonnoBit, based in Bogura, Bangladesh.
 
-Here's some info about him:
 📫 Email: ridoan.zisan@gmail.com
 📞 Phone: +8801712525910
-📍 Location: Bogura, Bangladesh
-🔗 LinkedIn: linkedin.com/in/ridoan-zisan
+📍 Location: Bishwaharigacha, Dhunat, Bogura, Rajshahi, Bangladesh
 🩸 Blood Group: B+
-🎂 Date of Birth: December 31, 2007
-🌐 Religion: Humanity`,
-    bn: `আমাকে তৈরি করেছেন মোঃ রিদোয়ান মাহমুদ জিসান, বগুড়া, বাংলাদেশ থেকে একজন স্ব-চালিত ওয়েব ডেভেলপার ও আইটি বিশেষজ্ঞ।
+🎂 DOB: 31 December 2007
 
-তার সম্পর্কে কিছু তথ্য:
+He builds impactful digital solutions from LMS and E-commerce platforms to civic tech tools that fight corruption through crowd verification.`,
+    bn: `মোঃ রিদোয়ান মাহমুদ জিসান একজন ওয়েব অ্যাপ্লিকেশন ডেভেলপার এবং OnonnoBit এর প্রতিষ্ঠাতা, বগুড়া, বাংলাদেশ থেকে।
+
 📫 ইমেইল: ridoan.zisan@gmail.com
 📞 ফোন: +৮৮০১৭১২৫২৫৯১০
-📍 অবস্থান: বগুড়া, বাংলাদেশ
-🔗 লিংকডইন: linkedin.com/in/ridoan-zisan
-🩸 রক্তের গ্রুপ: বি+
-🎂 জন্ম তারিখ: ৩১ ডিসেম্বর, ২০০৭
-🌐 ধর্ম: মানবতা`
+📍 অবস্থান: বিশ্বহরিগাছা, ধুনট, বগুড়া, রাজশাহী, বাংলাদেশ
+🩸 রক্তের গ্রুপ: B+
+🎂 জন্ম: ৩১ ডিসেম্বর ২০০৭
+
+তিনি LMS ও ই-কমার্স প্ল্যাটফর্ম থেকে দুর্নীতিবিরোধী সিভিক টেক টুলস পর্যন্ত প্রভাবশালী ডিজিটাল সমাধান তৈরি করেন।`
   },
 
-  // Education information
   education: {
-    en: `Md Ridoan Mahmud Zisan's Education:
-
-🎓 Higher Secondary Certificate (HSC)
-• Institution: KARATOA MULTIMEDIA SCHOOL AND COLLEGE
-• Year: 2023-2024
-• GPA: 4.25/5.00
+    en: `🎓 Higher Secondary Certificate (HSC)
+• Board: Rajshahi
+• Year: 2025
+• GPA: 4.25 (out of 5.00)
 • Group: Science
-• Major: Higher Math
 
 🎓 Secondary School Certificate (SSC)
-• Institution: DHUNAT GOVT N.U. PILOT MODEL HIGH SCHOOL
-• Year: 2021-2022
-• GPA: 5.00/5.00
-• Group: Science
-• Major: Higher Math`,
-    bn: `মোঃ রিদোয়ান মাহমুদ জিসানের শিক্ষা:
-
-🎓 উচ্চ মাধ্যমিক সার্টিফিকেট (এইচএসসি)
-• প্রতিষ্ঠান: কারাতোয়া মাল্টিমিডিয়া স্কুল অ্যান্ড কলেজ
-• বছর: ২০২৩-২০২৪
-• জিপিএ: ৪.২৫/৫.০০
-• গ্রুপ: বিজ্ঞান
-• মেজর: উচ্চতর গণিত
+• Board: Rajshahi
+• Year: 2023
+• GPA: 5.00 (out of 5.00)
+• Group: Science`,
+    bn: `🎓 উচ্চ মাধ্যমিক সার্টিফিকেট (এইচএসসি)
+• বোর্ড: রাজশাহী
+• বছর: ২০২৫
+• জিপিএ: ৪.২৫ (৫.০০ এর মধ্যে)
+• বিভাগ: বিজ্ঞান
 
 🎓 মাধ্যমিক স্কুল সার্টিফিকেট (এসএসসি)
-• প্রতিষ্ঠান: ধুনট সরকারি এন.ইউ. পাইলট মডেল হাই স্কুল
-• বছর: ২০২১-২০২২
-• জিপিএ: ৫.০০/৫.০০
-• গ্রুপ: বিজ্ঞান
-• মেজর: উচ্চতর গণিত`
+• বোর্ড: রাজশাহী
+• বছর: ২০২৩
+• জিপিএ: ৫.০০ (৫.০০ এর মধ্যে)
+• বিভাগ: বিজ্ঞান`
   },
 
-  // Skills information
   skills: {
-    en: `Md Ridoan Mahmud Zisan's Skills:
+    en: `💻 Frontend: React (TypeScript), Vite, Tailwind CSS, HTML5, CSS3, JavaScript
+🔧 Backend: Firebase (Auth + Backend), REST APIs
+🚀 Hosting: Git, GitHub, Vercel, Netlify
+💼 Services: Custom Web App Development, LMS, E-commerce, SEO, AEO, GEO
+🛠️ Tools: VS Code, Chrome DevTools, Figma
+🖥️ Computer: MS Office (Word, Excel, PowerPoint), Troubleshooting
 
-💻 Additional Skills:
-• Canva/Photoshop
-• Social Media
-• Web and App Development
-• The concept of AI
+⌨️ Typing: Bangla 20 WPM, English 30 WPM
+🗣️ Language: Bangla (Fluent), English (Professional)`,
+    bn: `💻 ফ্রন্টএন্ড: React (TypeScript), Vite, Tailwind CSS, HTML5, CSS3, JavaScript
+🔧 ব্যাকএন্ড: Firebase (Auth + Backend), REST APIs
+🚀 হোস্টিং: Git, GitHub, Vercel, Netlify
+💼 সেবা: কাস্টম ওয়েব অ্যাপ ডেভেলপমেন্ট, LMS, E-commerce, SEO, AEO, GEO
+🛠️ টুলস: VS Code, Chrome DevTools, Figma
+🖥️ কম্পিউটার: MS Office (Word, Excel, PowerPoint), Troubleshooting
 
-🗣️ Language Skills:
-• Bengali (Fluent)
-• English (Professional)
-
-🏆 Core Professional Skills:
-• MS Office Suite
-• Email Communication
-• Team Collaboration
-• Time Management
-• Problem Solving
-• Professional Ethics
-
-💬 Communication Skills:
-• Report Writing
-• Active Listening
-• Presentation
-• Professional Email`,
-    bn: `মোঃ রিদোয়ান মাহমুদ জিসানের দক্ষতা:
-
-💻 অতিরিক্ত দক্ষতা:
-• ক্যানভা/ফটোশপ
-• সোশ্যাল মিডিয়া
-• ওয়েব ও অ্যাপ ডেভেলপমেন্ট
-• এআই-এর ধারণা
-
-🗣️ ভাষা দক্ষতা:
-• বাংলা (সাবলীল)
-• ইংরেজি (পেশাদার)
-
-🏆 মূল পেশাদার দক্ষতা:
-• এমএস অফিস স্যুট
-• ইমেইল যোগাযোগ
-• টিম সহযোগিতা
-• সময় ব্যবস্থাপনা
-• সমস্যা সমাধান
-• পেশাগত নীতিশাস্ত্র
-
-💬 যোগাযোগ দক্ষতা:
-• রিপোর্ট রাইটিং
-• সক্রিয় শ্রবণ
-• উপস্থাপনা
-• পেশাদার ইমেইল`
+⌨️ টাইপিং: বাংলা ২০ WPM, ইংরেজি ৩০ WPM
+🗣️ ভাষা: বাংলা (সাবলীল), ইংরেজি (পেশাদার)`
   },
 
-  // Projects information
   projects: {
-    en: `Md Ridoan Mahmud Zisan's Notable Projects:
+    en: `Ridoan has built 10+ web applications:
 
-🩸 BOBDO
-• Online blood donation website and web app
-• Built blood donor platform serving 68k+ community members
-• Implemented digital system reducing response time by 40%
-• Link: bobdo.vercel.app
+🎓 UpCoach - Learning Management System
+🛒 BitQraft - E-commerce Platform
+⚖️ Chor Koi - Anti-Corruption Platform
+🩸 BloodMate - Blood Donation
+📱 MicroMedia - Mini Social Media
+📊 Zisan Trader - Inventory Management
+🩸 BOBDO - Blood Donation Organization
+💙 YouthHope BD - Youth Organization
+📝 Zpad - Notepad
+🔄 UniConverter - Unit Converter
 
-🌐 YouthHopeBD
-• Platform for youth development and social services
-• Link: youthhope-bd.netlify.app
+Visit the Projects page to see all details and live links!`,
+    bn: `রিদোয়ান ১০+ ওয়েব অ্যাপ্লিকেশন তৈরি করেছেন:
 
-🛒 ZupraMart
-• All in one shopping platform
-• All daily necessities available including website source code
-• Link: zupramart.netlify.app
+🎓 UpCoach - লার্নিং ম্যানেজমেন্ট সিস্টেম
+🛒 BitQraft - ই-কমার্স প্ল্যাটফর্ম
+⚖️ চোর কই - দুর্নীতিবিরোধী প্ল্যাটফর্ম
+🩸 BloodMate - রক্তদান
+📱 MicroMedia - মিনি সোশ্যাল মিডিয়া
+📊 Zisan Trader - ইনভেন্টরি ম্যানেজমেন্ট
+🩸 BOBDO - রক্তদান সংগঠন
+💙 YouthHope BD - যুব সংগঠন
+📝 Zpad - নোটপ্যাড
+🔄 UniConverter - ইউনিট কনভার্টার
 
-📐 UniConverter
-• Unit converter supporting 50+ measurement categories
-• Link: uniconverter.netlify.app
-
-💻 DevHub
-• My all projects showcase
-• Link: devhub-i.netlify.app
-
-📚 HSCian
-• E-learning platform for HSC students
-• Link: hscian.netlify.app`,
-    bn: `মোঃ রিদোয়ান মাহমুদ জিসানের উল্লেখযোগ্য প্রকল্প:
-
-🩸 BOBDO
-• অনলাইন রক্তদান ওয়েবসাইট ও ওয়েব অ্যাপ
-• ৬৮ হাজার+ সদস্যদের সেবা দেওয়া রক্তদাতা প্ল্যাটফর্ম তৈরি করেছি
-• প্রতিক্রিয়া সময় ৪০% কমিয়ে ডিজিটাল সিস্টেম বাস্তবায়ন করেছি
-• লিংক: bobdo.vercel.app
-
-🌐 YouthHopeBD
-• যুব উন্নয়ন ও সামাজিক সেবার প্ল্যাটফর্ম
-• লিংক: youthhope-bd.netlify.app
-
-🛒 ZupraMart
-• অল ইন ওয়ান শপিং প্ল্যাটফর্ম
-• ওয়েবসাইট সোর্স কোড সহ সমস্ত দৈনন্দিন প্রয়োজনীয় জিনিস পাওয়া যায়
-• লিংক: zupramart.netlify.app
-
-📐 UniConverter
-• ৫০+ পরিমাপ বিভাগ সমর্থনকারী ইউনিট কনভার্টার
-• লিংক: uniconverter.netlify.app
-
-💻 DevHub
-• আমার সব প্রজেক্টের শোকেস
-• লিংক: devhub-i.netlify.app
-
-📚 HSCian
-• এইচএসসি শিক্ষার্থীদের জন্য ই-লার্নিং প্ল্যাটফর্ম
-• লিংক: hscian.netlify.app`
+সব বিস্তারিত ও লাইভ লিংক দেখতে প্রজেক্ট পেজ ভিজিট করুন!`
   },
 
-  // Certificates information
+  experience: {
+    en: `💼 Experience:
+
+1. OnonnoBit (2026-Present)
+   Founder & Lead Developer
+   Custom web app development agency
+
+2. Bogura Online Blood Donation Organization (2025-Present)
+   Web Developer & Volunteer
+   Built blood management platform
+
+3. Chor Koi Platform (2024)
+   Civic Tech Developer
+   Anti-corruption web application`,
+    bn: `💼 অভিজ্ঞতা:
+
+১. OnonnoBit (২০২৬-বর্তমান)
+   প্রতিষ্ঠাতা ও লিড ডেভেলপার
+   কাস্টম ওয়েব অ্যাপ ডেভেলপমেন্ট এজেন্সি
+
+২. বগুড়া অনলাইন রক্তদান সংগঠন (২০২৫-বর্তমান)
+   ওয়েব ডেভেলপার ও স্বেচ্ছাসেবক
+   রক্ত ব্যবস্থাপনা প্ল্যাটফর্ম তৈরি
+
+৩. চোর কই প্ল্যাটফর্ম (২০২৪)
+   সিভিক টেক ডেভেলপার
+   দুর্নীতিবিরোধী ওয়েব অ্যাপ্লিকেশন`
+  },
+
   certificates: {
-    en: `Md Ridoan Mahmud Zisan's Certifications & Achievements:
+    en: `📜 Certificates & Achievements:
 
-🏅 Academic Olympiads:
-• Bangladesh Mathematical Olympiad
-• ICT Olympiad - Quarter Final
-• National GK Olympiad
-
-📜 Professional Certifications:
+Professional:
 • Google IT Support
-• Foundations of Cybersecurity
-• Digital Marketing
-• Python for Data Science and AI
-• Introduction to Artificial Intelligence
-• Machine Learning
+• Foundations of Cyber Security
 • Complete Web Development
 • Introduction to Python
+• Python for Data Science & AI
+• Introduction to Artificial Intelligence
+• Machine Learning
+• Digital Marketing
 
-🌍 Climate & Sustainability:
-• Gender equality and human rights in climate action and renewable energy
-• Net Zero 101: What, Why and How
-• Introduction to Sustainable Development in Practice
-• The UN Climate Change process`,
-    bn: `মোঃ রিদোয়ান মাহমুদ জিসানের সার্টিফিকেশন ও অর্জন:
+Climate & Sustainability:
+• Gender & Climate Action
+• Net Zero 101
+• Sustainable Development
+• UN Climate Change Process
 
-🏅 একাডেমিক অলিম্পিয়াড:
+Olympiads:
+• Bangladesh Mathematical Olympiad
+• ICT Olympiad (Quarter Final)
+• National GK Olympiad`,
+    bn: `📜 সার্টিফিকেট ও অর্জন:
+
+পেশাদার:
+• Google IT Support
+• Foundations of Cyber Security
+• Complete Web Development
+• Introduction to Python
+• Python for Data Science & AI
+• Introduction to Artificial Intelligence
+• Machine Learning
+• Digital Marketing
+
+জলবায়ু ও স্থায়িত্ব:
+• Gender & Climate Action
+• Net Zero 101
+• Sustainable Development
+• UN Climate Change Process
+
+অলিম্পিয়াড:
 • বাংলাদেশ গণিত অলিম্পিয়াড
-• আইসিটি অলিম্পিয়াড - কোয়ার্টার ফাইনাল
-• জাতীয় সাধারণ জ্ঞান অলিম্পিয়াড
-
-📜 পেশাদার সার্টিফিকেশন:
-• গুগল আইটি সাপোর্ট
-• সাইবার সিকিউরিটির মূল ভিত্তি
-• ডিজিটাল মার্কেটিং
-• ডেটা সায়েন্স ও এআই-এর জন্য পাইথন
-• কৃত্রিম বুদ্ধিমত্তার ভূমিকা
-• মেশিন লার্নিং
-• সম্পূর্ণ ওয়েব ডেভেলপমেন্ট
-• পাইথন পরিচিতি
-
-🌍 জলবায়ু ও স্থায়িত্ব:
-• জলবায়ু পদক্ষেপ ও নবায়নযোগ্য শক্তিতে লিঙ্গ সমতা ও মানবাধিকার
-• নেট জিরো ১০১: কী, কেন এবং কীভাবে
-• টেকসই উন্নয়ন অনুশীলনের পরিচিতি
-• জাতিসংঘ জলবায়ু পরিবর্তন প্রক্রিয়া`
+• আইসিটি অলিম্পিয়াড (কোয়ার্টার ফাইনাল)
+• জাতীয় সাধারণ জ্ঞান অলিম্পিয়াড`
   },
 
-  // Contact information
   contact: {
-    en: `You can contact Md Ridoan Mahmud Zisan through:
+    en: `📞 Contact Ridoan Zisan:
 
 📧 Email: ridoan.zisan@gmail.com
-📞 Phone: +8801712525910
-📍 Location: Bogura, Bangladesh
-🔗 LinkedIn: linkedin.com/in/ridoan-zisan
-
-You can also use the contact form on the website to send him a message directly.`,
-    bn: `আপনি মোঃ রিদোয়ান মাহমুদ জিসানের সাথে যোগাযোগ করতে পারেন:
-
-📧 ইমেইল: ridoan.zisan@gmail.com
-📞 ফোন: +৮৮০১৭১২৫২৫৯১০
-📍 অবস্থান: বগুড়া, বাংলাদেশ
-🔗 লিংকডইন: linkedin.com/in/ridoan-zisan
-
-আপনি সরাসরি তাকে বার্তা পাঠাতে ওয়েবসাইটের যোগাযোগ ফর্মও ব্যবহার করতে পারেন।`
-  },
-
-  // Volunteer work
-  volunteer: {
-    en: `Md Ridoan Mahmud Zisan's Volunteer Work:
-
-🩸 Bogura Online Blood Donation Organisation
-• Role: Volunteer & Developer (2023-Present)
-• Built blood donor platform serving 68k+ community members
-• Implemented digital system reducing response time by 40%
-• Link: bobdo.vercel.app
-
-💙 Youth Hope BD
-• Role: Volunteer & Developer (2025-Present)
-• Developed platform for youth development and social services
-• Created tools for volunteer management and event organization
-• Link: youthhope-bd.netlify.app`,
-    bn: `মোঃ রিদোয়ান মাহমুদ জিসানের স্বেচ্ছাসেবী কাজ:
-
-🩸 বগুড়া অনলাইন রক্তদান সংগঠন
-• ভূমিকা: স্বেচ্ছাসেবক ও ডেভেলপার (২০২৩-বর্তমান)
-• ৬৮ হাজার+ সদস্যদের সেবা দেওয়া রক্তদাতা প্ল্যাটফর্ম তৈরি করেছি
-• প্রতিক্রিয়া সময় ৪০% কমিয়ে ডিজিটাল সিস্টেম বাস্তবায়ন করেছি
-• লিংক: bobdo.vercel.app
-
-💙 ইয়ুথ হোপ বিডি
-• ভূমিকা: স্বেচ্ছাসেবক ও ডেভেলপার (২০২৫-বর্তমান)
-• যুব উন্নয়ন ও সামাজিক সেবার প্ল্যাটফর্ম তৈরি করেছি
-• স্বেচ্ছাসেবক ব্যবস্থাপনা ও ইভেন্ট আয়োজনের টুল তৈরি করেছি
-• লিংক: youthhope-bd.netlify.app`
-  },
-
-  // Family information
-  family: {
-    en: `Md Ridoan Mahmud Zisan's Family:
-
-👨‍👩‍👧‍👦 Family Members:
-• Father: Md Rokibul Hasan Shekh
-• Mother: Mst. Zosna Khatun
-• Siblings: Raisa Jannat (Younger Sister)`,
-    bn: `মোঃ রিদোয়ান মাহমুদ জিসানের পরিবার:
-
-👨‍👩‍👧‍👦 পরিবারের সদস্য:
-• পিতা: মোঃ রকিবুল হাসান শেখ
-• মাতা: মোছাঃ জোসনা খাতুন
-• ভাইবোন: রাইসা জান্নাত (ছোট বোন)`
-  },
-
-  // Research information
-  research: {
-    en: `Md Ridoan Mahmud Zisan's Research Work:
-
-📚 He has conducted research in various fields including web development, AI, and social impact projects.
-
-Featured Research:
-• Digital Solutions for Community Blood Donation: A Case Study of BOBDO Platform
-
-Visit the Research page on his website to learn more about his research publications and ongoing projects.`,
-    bn: `মোঃ রিদোয়ান মাহমুদ জিসানের গবেষণা কাজ:
-
-📚 তিনি ওয়েব ডেভেলপমেন্ট, এআই এবং সামাজিক প্রভাব প্রকল্প সহ বিভিন্ন ক্ষেত্রে গবেষণা করেছেন।
-
-বৈশিষ্ট্যযুক্ত গবেষণা:
-• সম্প্রদায়ের রক্তদানের জন্য ডিজিটাল সমাধান: BOBDO প্ল্যাটফর্মের একটি কেস স্টাডি
-
-তার গবেষণা প্রকাশনা এবং চলমান প্রকল্পগুলি সম্পর্কে আরও জানতে তার ওয়েবসাইটের গবেষণা পৃষ্ঠা দেখুন।`
-  },
-
-  // Blog information
-  blog: {
-    en: `Md Ridoan Mahmud Zisan's Blog:
-
-✍️ He writes about technology, web development, AI, and his experiences.
-
-Featured Projects on Blog:
-• BOBDO - Blood Donation Platform
-• HSCian - E-learning Platform
-• ZupraMart - E-commerce Platform
-• And many more...
-
-Visit the Blog page on his website to read about his latest projects and insights.`,
-    bn: `মোঃ রিদোয়ান মাহমুদ জিসানের ব্লগ:
-
-✍️ তিনি প্রযুক্তি, ওয়েব ডেভেলপমেন্ট, এআই এবং তার অভিজ্ঞতা সম্পর্কে লেখেন।
-
-ব্লগে বৈশিষ্ট্যযুক্ত প্রকল্প:
-• BOBDO - রক্তদান প্ল্যাটফর্ম
-• HSCian - ই-লার্নিং প্ল্যাটফর্ম
-• ZupraMart - ই-কমার্স প্ল্যাটফর্ম
-• এবং আরও অনেক...
-
-তার সর্বশেষ প্রকল্প এবং অন্তর্দৃষ্টি পড়তে তার ওয়েবসাইটের ব্লগ পৃষ্ঠা দেখুন।`
-  },
-
-  // Social media information
-  social: {
-    en: `Connect with Md Ridoan Mahmud Zisan on social media:
+📱 Phone: +8801712525910
+💬 WhatsApp: +8801712525910
+📍 Address: Bishwaharigacha, Dhunat, Bogura, Rajshahi, Bangladesh (Post Code: 5850)
 
 🔗 LinkedIn: linkedin.com/in/ridoan-zisan
 💻 GitHub: github.com/RidoanDev
-📘 Facebook: facebook.com/rid0anzisan
-🎥 YouTube: youtube.com/@ridoan-zisan
-🐦 Twitter/X: x.com/ridoan_zisan
-📧 Email: ridoan.zisan@gmail.com
-📱 WhatsApp: wa.me/8801712525910`,
-    bn: `মোঃ রিদোয়ান মাহমুদ জিসানের সাথে সোশ্যাল মিডিয়ায় সংযুক্ত হন:
+📘 Facebook: facebook.com/ridoan.zisan`,
+    bn: `📞 রিদোয়ান জিসানের সাথে যোগাযোগ:
 
-🔗 লিংকডইন: linkedin.com/in/ridoan-zisan
-💻 গিটহাব: github.com/RidoanDev
-📘 ফেসবুক: facebook.com/rid0anzisan
-🎥 ইউটিউব: youtube.com/@ridoan-zisan
-🐦 টুইটার/এক্স: x.com/ridoan_zisan
 📧 ইমেইল: ridoan.zisan@gmail.com
-📱 হোয়াটসঅ্যাপ: wa.me/8801712525910`
+📱 ফোন: +৮৮০১৭১২৫২৫৯১০
+💬 WhatsApp: +৮৮০১৭১২৫২৫৯১০
+📍 ঠিকানা: বিশ্বহরিগাছা, ধুনট, বগুড়া, রাজশাহী, বাংলাদেশ (পোস্ট কোড: ৫৮৫০)
+
+🔗 LinkedIn: linkedin.com/in/ridoan-zisan
+💻 GitHub: github.com/RidoanDev
+📘 Facebook: facebook.com/ridoan.zisan`
   },
 
-  // Thank you response
+  agency: {
+    en: `🏢 OnonnoBit - Custom Web App Development Agency
+
+Founded by Md Ridoan Mahmud Zisan, OnonnoBit specializes in:
+• Custom Web Application Development
+• Learning Management System (LMS)
+• E-commerce Platforms
+• Business Solutions
+• SEO, AEO, GEO Services
+
+📧 Email: ononnobit@gmail.com
+📱 WhatsApp: +8801763822211
+🌐 Website: ononnobit.vercel.app
+📍 Location: Bogura, Bangladesh (Remote)`,
+    bn: `🏢 OnonnoBit - কাস্টম ওয়েব অ্যাপ ডেভেলপমেন্ট এজেন্সি
+
+মোঃ রিদোয়ান মাহমুদ জিসান দ্বারা প্রতিষ্ঠিত, OnonnoBit বিশেষজ্ঞ:
+• কাস্টম ওয়েব অ্যাপ্লিকেশন ডেভেলপমেন্ট
+• লার্নিং ম্যানেজমেন্ট সিস্টেম (LMS)
+• ই-কমার্স প্ল্যাটফর্ম
+• বিজনেস সলিউশন
+• SEO, AEO, GEO সেবা
+
+📧 ইমেইল: ononnobit@gmail.com
+📱 WhatsApp: +৮৮০১৭৬৩৮২২২১১
+🌐 ওয়েবসাইট: ononnobit.vercel.app
+📍 অবস্থান: বগুড়া, বাংলাদেশ (রিমোট)`
+  },
+
+  volunteer: {
+    en: `🤝 Volunteer Work:
+
+1. Bogura Online Blood Donation Organization (BOBDO)
+   Building blood management platform for community
+
+2. Youth Hope BD
+   Youth development and social services
+
+3. Chor Koi (Anti-Corruption)
+   Civic tech for accountability
+
+Committed to building technology that serves communities!`,
+    bn: `🤝 স্বেচ্ছাসেবী কাজ:
+
+১. বগুড়া অনলাইন রক্তদান সংগঠন (BOBDO)
+   কমিউনিটির জন্য ব্লাড ম্যানেজমেন্ট প্ল্যাটফর্ম তৈরি
+
+২. Youth Hope BD
+   যুব উন্নয়ন এবং সামাজিক সেবা
+
+৩. চোর কই (দুর্নীতিবিরোধী)
+   জবাবদিহিতার জন্য সিভিক টেক
+
+সম্প্রদায়ের সেবায় প্রযুক্তি তৈরিতে প্রতিশ্রুতিবদ্ধ!`
+  },
+
+  family: {
+    en: `👨‍👩‍👧‍👦 Family:
+• Father: Md Rokibul Hasan Shekh
+• Mother: Mst. Zosna Khatun
+• Younger Sister: Raisa Jannat`,
+    bn: `👨‍👩‍👧‍👦 পরিবার:
+• পিতা: মোঃ রকিবুল হাসান শেখ
+• মাতা: মোছাঃ জোসনা খাতুন
+• ছোট বোন: রাইসা জান্নাত`
+  },
+
+  blog: {
+    en: `📝 Visit the Blog page to see:
+• Latest social media posts (Facebook, LinkedIn)
+• Written articles about web development
+• Project case studies and insights
+• Personal journey stories`,
+    bn: `📝 ব্লগ পেজ ভিজিট করে দেখুন:
+• সর্বশেষ সোশ্যাল মিডিয়া পোস্ট (Facebook, LinkedIn)
+• ওয়েব ডেভেলপমেন্ট সম্পর্কে লেখা আর্টিকেল
+• প্রজেক্ট কেস স্টাডি ও অন্তর্দৃষ্টি
+• ব্যক্তিগত যাত্রার গল্প`
+  },
+
+  social: {
+    en: `🔗 Connect with Ridoan Zisan:
+
+💼 LinkedIn: linkedin.com/in/ridoan-zisan
+💻 GitHub: github.com/RidoanDev
+📘 Facebook: facebook.com/ridoan.zisan
+🔍 Google: search "Md Ridoan Mahmud Zisan"
+📧 Gmail: ridoan.zisan@gmail.com
+💬 WhatsApp: +8801712525910`,
+    bn: `🔗 রিদোয়ান জিসানের সাথে সংযুক্ত হন:
+
+💼 LinkedIn: linkedin.com/in/ridoan-zisan
+💻 GitHub: github.com/RidoanDev
+📘 Facebook: facebook.com/ridoan.zisan
+🔍 Google: "Md Ridoan Mahmud Zisan" সার্চ করুন
+📧 Gmail: ridoan.zisan@gmail.com
+💬 WhatsApp: +৮৮০১৭১২৫২৫৯১০`
+  },
+
   thanks: {
-    en: "You're welcome! Let me know if you need any more information about Md Ridoan Mahmud Zisan.",
-    bn: "স্বাগতম! মোঃ রিদোয়ান মাহমুদ জিসান সম্পর্কে আরও কোনো তথ্য প্রয়োজন হলে জানান।"
+    en: "You're welcome! Feel free to ask more questions about Ridoan Zisan or OnonnoBit.",
+    bn: "স্বাগতম! রিদোয়ান জিসান বা OnonnoBit সম্পর্কে আরও প্রশ্ন করতে দ্বিধা করবেন না।"
   },
 
-  // Default response
   default: {
-    en: "I'm not sure I understand. You can ask me about:\n\n• Profile / About\n• Education\n• Skills\n• Experience\n• Projects\n• Certificates\n• Family\n• Contact\n• Research\n• Blog\n• Social Media",
-    bn: "আমি নিশ্চিত নই যে আমি বুঝতে পেরেছি। আপনি আমাকে জিজ্ঞাসা করতে পারেন:\n\n• প্রোফাইল / সম্পর্কে\n• শিক্ষা\n• দক্ষতা\n• অভিজ্ঞতা\n• প্রকল্প\n• সার্টিফিকেট\n• পরিবার\n• যোগাযোগ\n• গবেষণা\n• ব্লগ\n• সোশ্যাল মিডিয়া"
+    en: "I can help you learn about Ridoan Zisan. You can ask about:\n\n• Profile / About\n• Education\n• Skills\n• Experience\n• Projects\n• Certificates\n• Family\n• Contact\n• OnonnoBit Agency\n• Social Media",
+    bn: "আমি আপনাকে রিদোয়ান জিসান সম্পর্কে জানাতে পারি। জিজ্ঞাসা করতে পারেন:\n\n• প্রোফাইল / সম্পর্কে\n• শিক্ষা\n• দক্ষতা\n• অভিজ্ঞতা\n• প্রজেক্ট\n• সার্টিফিকেট\n• পরিবার\n• যোগাযোগ\n• OnonnoBit এজেন্সি\n• সোশ্যাল মিডিয়া"
   },
 
-  // Age response (dynamically calculated)
   age: {
-    en: (age: number) => `Md Ridoan Mahmud Zisan is ${age} years old (born December 31, 2007).`,
-    bn: (age: number) => `মোঃ রিদোয়ান মাহমুদ জিসানের বয়স ${age} বছর (জন্ম ৩১ ডিসেম্বর, ২০০৭)।`
+    en: (age: number) => `Md Ridoan Mahmud Zisan is ${age} years old (born 31 December 2007).`,
+    bn: (age: number) => `মোঃ রিদোয়ান মাহমুদ জিসানের বয়স ${age} বছর (জন্ম ৩১ ডিসেম্বর ২০০৭)।`
   },
 
-  // Blood group response
   bloodGroup: {
     en: "Md Ridoan Mahmud Zisan's blood group is B+ (B positive).",
-    bn: "মোঃ রিদোয়ান মাহমুদ জিসানের রক্তের গ্রুপ বি+ (বি পজিটিভ)।"
+    bn: "মোঃ রিদোয়ান মাহমুদ জিসানের রক্তের গ্রুপ B+ (বি পজিটিভ)।"
   },
-
-  // Experience/Work information
-  experience: {
-    en: `Md Ridoan Mahmud Zisan's Work Experience:
-
-💼 Bogura Online Blood Donation Organisation (BOBDO)
-• Role: Volunteer & Developer
-• Period: 2023 - Present
-• Developed and maintain the BOBDO web platform serving 68k+ community members
-• Reduced blood request response time by 40% through efficient system design
-• Built responsive web app for blood donation management
-
-💼 Youth Hope BD
-• Role: Volunteer & Developer
-• Period: 2025 - Present
-• Developed youth development and social services platform
-• Created interactive features for community engagement`,
-    bn: `মোঃ রিদোয়ান মাহমুদ জিসানের কাজের অভিজ্ঞতা:
-
-💼 বগুড়া অনলাইন রক্তদান সংগঠন (BOBDO)
-• ভূমিকা: স্বেচ্ছাসেবক ও ডেভেলপার
-• সময়কাল: ২০২৩ - বর্তমান
-• ৬৮ হাজার+ সদস্যদের সেবা দেওয়া BOBDO ওয়েব প্ল্যাটফর্ম তৈরি ও রক্ষণাবেক্ষণ করছি
-• দক্ষ সিস্টেম ডিজাইনের মাধ্যমে রক্তের অনুরোধের প্রতিক্রিয়া সময় ৪০% কমিয়েছি
-
-💼 ইয়ুথ হোপ বিডি
-• ভূমিকা: স্বেচ্ছাসেবক ও ডেভেলপার
-• সময়কাল: ২০২৫ - বর্তমান
-• যুব উন্নয়ন ও সামাজিক সেবা প্ল্যাটফর্ম তৈরি করেছি
-• সম্প্রদায়ের সম্পৃক্ততার জন্য ইন্টারঅ্যাক্টিভ ফিচার তৈরি করেছি`
-  }
 };
 
-// Keywords for matching user input (English and Bangla)
+// Keywords for matching user input (English & Bangla)
 export const chatbotKeywords = {
-  profile: ['profile', 'developer', 'creator', 'who made you', 'your creator', 'zisan', 'ridoan', 'about', 'প্রোফাইল', 'সম্পর্কে', 'জিসান', 'রিদোয়ান'],
-  education: ['education', 'study', 'school', 'college', 'শিক্ষা', 'পড়াশোনা', 'স্কুল', 'কলেজ'],
-  skills: ['skill', 'expertise', 'what can you do', 'ability', 'দক্ষতা', 'প্রযুক্তি', 'যোগ্যতা'],
-  projects: ['project', 'work', 'build', 'developed', 'প্রকল্প', 'প্রজেক্ট', 'তৈরি'],
+  profile: ['profile', 'about', 'who', 'introduce', 'zisan', 'ridoan', 'প্রোফাইল', 'সম্পর্কে', 'জিসান', 'রিদোয়ান'],
+  education: ['education', 'study', 'school', 'college', 'hsc', 'ssc', 'gpa', 'শিক্ষা', 'পড়াশোনা', 'স্কুল', 'কলেজ', 'জিপিএ'],
+  skills: ['skill', 'tech', 'stack', 'frontend', 'backend', 'react', 'দক্ষতা', 'প্রযুক্তি'],
+  projects: ['project', 'work', 'build', 'developed', 'app', 'website', 'প্রজেক্ট', 'প্রকল্প', 'অ্যাপ', 'ওয়েবসাইট'],
   certificates: ['certificate', 'certification', 'achievement', 'award', 'olympiad', 'সার্টিফিকেট', 'অর্জন', 'অলিম্পিয়াড'],
-  contact: ['contact', 'email', 'phone', 'address', 'reach', 'connect', 'যোগাযোগ', 'ইমেইল', 'ফোন'],
+  contact: ['contact', 'email', 'phone', 'address', 'reach', 'যোগাযোগ', 'ইমেইল', 'ফোন', 'ঠিকানা'],
   volunteer: ['volunteer', 'blood', 'donation', 'bobdo', 'youthhope', 'স্বেচ্ছাসেবক', 'রক্তদান'],
   family: ['family', 'father', 'mother', 'parent', 'sibling', 'পরিবার', 'বাবা', 'মা', 'পিতা', 'মাতা'],
-  research: ['research', 'paper', 'গবেষণা', 'পেপার'],
-  blog: ['blog', 'article', 'ব্লগ', 'আর্টিকেল'],
-  social: ['social', 'social media', 'linkedin', 'facebook', 'github', 'সোশ্যাল', 'সোশ্যাল মিডিয়া'],
-  greeting: ['hello', 'hi', 'hey', 'হ্যালো', 'হাই', 'হেই'],
-  thanks: ['thank', 'thanks', 'ধন্যবাদ'],
+  agency: ['ononnobit', 'agency', 'company', 'business', 'এজেন্সি', 'কোম্পানি', 'ব্যবসা', 'অনন্যবিট'],
+  experience: ['experience', 'job', 'career', 'work', 'অভিজ্ঞতা', 'কাজ', 'চাকরি'],
+  blog: ['blog', 'article', 'post', 'ব্লগ', 'পোস্ট', 'আর্টিকেল'],
+  social: ['social', 'linkedin', 'facebook', 'github', 'twitter', 'সোশ্যাল'],
+  greeting: ['hello', 'hi', 'hey', 'assalamu', 'salam', 'হ্যালো', 'হাই', 'সালাম'],
+  thanks: ['thank', 'thanks', 'ধন্যবাদ', 'শুকরিয়া'],
   age: ['age', 'old', 'birth', 'বয়স', 'জন্ম'],
   bloodGroup: ['blood group', 'blood type', 'রক্তের গ্রুপ'],
-  experience: ['experience', 'work', 'job', 'অভিজ্ঞতা', 'কাজ', 'চাকরি']
 };
