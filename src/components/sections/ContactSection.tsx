@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Send, Linkedin, Github, Facebook, Youtube, MessageCircle, MapPin, Phone, Globe, Twitter } from 'lucide-react';
+import { Mail, Send, Linkedin, Github, Facebook, MessageCircle, MapPin, Phone, Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { portfolioData } from '@/data/Portfolio';
 
@@ -14,18 +14,12 @@ const ContactSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
     const { name, subject, message } = formData;
     const emailBody = `Name: ${name}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-    
-    // Check if mobile device
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    
     if (isMobile) {
-      // Open default mail app
       window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${emailBody}`;
     } else {
-      // Open Gmail in new tab
       const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}&su=${encodeURIComponent(subject)}&body=${emailBody}`;
       window.open(gmailUrl, '_blank');
     }
@@ -36,39 +30,24 @@ const ContactSection: React.FC = () => {
   };
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: Linkedin, href: social.linkedin, color: 'hover:text-blue-600' },
-    { name: 'GitHub', icon: Github, href: social.github, color: 'hover:text-gray-800' },
-    { name: 'Facebook', icon: Facebook, href: social.facebook, color: 'hover:text-blue-500' },
-    { name: 'YouTube', icon: Youtube, href: social.youtube, color: 'hover:text-red-600' },
-    { name: 'Twitter', icon: Twitter, href: social.twitter, color: 'hover:text-sky-500' },
-    { name: 'WhatsApp', icon: MessageCircle, href: social.whatsapp, color: 'hover:text-green-500' },
+    { name: 'LinkedIn', icon: Linkedin, href: social.linkedin },
+    { name: 'GitHub', icon: Github, href: social.github },
+    { name: 'Facebook', icon: Facebook, href: social.facebook },
+    { name: 'WhatsApp', icon: MessageCircle, href: social.whatsapp },
+    { name: 'Gmail', icon: Mail, href: social.gmail },
+    { name: 'Google', icon: Globe, href: social.google },
   ];
 
+  const address = profile.address;
+  const fullAddress = language === 'en'
+    ? `${address.village}, ${address.upazila}, ${address.district}, ${address.division}, ${address.postCode}`
+    : `${address.villageBn}, ${address.upazilaBn}, ${address.districtBn}, ${address.divisionBn}, ${address.postCode}`;
+
   const contactInfo = [
-    { 
-      icon: MapPin, 
-      label: language === 'en' ? 'Location' : 'অবস্থান', 
-      value: language === 'en' ? profile.location : profile.locationBn,
-      href: null 
-    },
-    { 
-      icon: Phone, 
-      label: language === 'en' ? 'Phone' : 'ফোন', 
-      value: profile.phone,
-      href: `tel:${profile.phone}` 
-    },
-    { 
-      icon: Mail, 
-      label: language === 'en' ? 'Email' : 'ইমেইল', 
-      value: profile.email,
-      href: `mailto:${profile.email}` 
-    },
-    { 
-      icon: Globe, 
-      label: language === 'en' ? 'Google' : 'গুগল', 
-      value: language === 'en' ? 'Search on Google' : 'গুগলে সার্চ করুন',
-      href: social.google 
-    },
+    { icon: MapPin, label: t('family.address'), value: fullAddress, href: null },
+    { icon: Phone, label: language === 'en' ? 'Phone' : 'ফোন', value: profile.phone, href: `tel:${profile.phone}` },
+    { icon: MessageCircle, label: 'WhatsApp', value: profile.whatsapp, href: social.whatsapp },
+    { icon: Mail, label: language === 'en' ? 'Email' : 'ইমেইল', value: profile.email, href: `mailto:${profile.email}` },
   ];
 
   return (
@@ -77,7 +56,6 @@ const ContactSection: React.FC = () => {
         <h2 className="section-title animate-fade-in">{t('contact.title')}</h2>
 
         <div className="mt-8 md:mt-12">
-          {/* Desktop: Side by side layout */}
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Contact Form */}
             <div className="bg-card rounded-xl p-5 md:p-6 shadow-sm border border-border animate-fade-in order-2 lg:order-1">
@@ -146,23 +124,22 @@ const ContactSection: React.FC = () => {
 
             {/* Contact Info & Social Links */}
             <div className="space-y-6 animate-fade-in order-1 lg:order-2">
-              {/* Contact Information */}
               <div className="bg-card rounded-xl p-5 md:p-6 shadow-sm border border-border">
                 <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
                   <Mail size={20} className="text-primary" />
-                  {language === 'en' ? 'Contact Information' : 'যোগাযোগের তথ্য'}
+                  {t('contact.information')}
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {contactInfo.map((item, index) => {
                     const Icon = item.icon;
                     const content = (
                       <div className="flex items-start gap-3 group">
-                        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                        <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors flex-shrink-0">
                           <Icon size={18} className="text-primary" />
                         </div>
-                        <div>
+                        <div className="min-w-0">
                           <p className="text-xs text-muted-foreground">{item.label}</p>
-                          <p className="text-sm font-medium text-foreground">{item.value}</p>
+                          <p className="text-sm font-medium text-foreground break-words">{item.value}</p>
                         </div>
                       </div>
                     );
@@ -180,7 +157,7 @@ const ContactSection: React.FC = () => {
                         </a>
                       );
                     }
-                    return <div key={index}>{content}</div>;
+                    return <div key={index} className="p-2 -m-2">{content}</div>;
                   })}
                 </div>
               </div>
@@ -189,9 +166,9 @@ const ContactSection: React.FC = () => {
               <div className="bg-card rounded-xl p-5 md:p-6 shadow-sm border border-border">
                 <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
                   <Globe size={20} className="text-primary" />
-                  {language === 'en' ? 'Social Links' : 'সামাজিক লিঙ্ক'}
+                  {t('contact.socialLinks')}
                 </h3>
-                <div className="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-3 gap-3">
+                <div className="grid grid-cols-3 gap-3">
                   {socialLinks.map((link) => {
                     const Icon = link.icon;
                     return (
@@ -200,7 +177,7 @@ const ContactSection: React.FC = () => {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`flex flex-col items-center gap-2 p-3 bg-accent/50 rounded-lg hover:bg-accent transition-all ${link.color}`}
+                        className="flex flex-col items-center gap-2 p-3 bg-accent/50 rounded-lg hover:bg-primary hover:text-primary-foreground transition-all"
                       >
                         <Icon size={22} />
                         <span className="text-xs font-medium">{link.name}</span>

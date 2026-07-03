@@ -38,13 +38,11 @@ const CertificatesSection: React.FC = () => {
         <h2 className="section-title animate-fade-in">{t('certificates.title')}</h2>
 
         <div className="mt-8 md:mt-12">
-          {/* Main Certificate Display */}
           <div
             className="relative max-w-4xl mx-auto"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            {/* Certificate Card with Image */}
             <div className="bg-card rounded-2xl border border-border shadow-lg overflow-hidden">
               {/* Certificate Image */}
               <div className="relative aspect-[16/10] bg-gradient-to-br from-primary/5 to-accent/20 overflow-hidden">
@@ -53,7 +51,7 @@ const CertificatesSection: React.FC = () => {
                   alt={language === 'en' ? certificates[currentIndex].name : certificates[currentIndex].nameBn}
                   className="w-full h-full object-contain p-4 transition-transform duration-500"
                 />
-                
+
                 {/* Overlay Controls */}
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
                   <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -72,6 +70,22 @@ const CertificatesSection: React.FC = () => {
                   </div>
                 </div>
 
+                {/* Navigation Arrows on Image */}
+                <button
+                  onClick={goToPrevious}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2 bg-card/90 backdrop-blur-sm rounded-full border border-border shadow-md hover:bg-card transition-colors"
+                  aria-label="Previous certificate"
+                >
+                  <ChevronLeft className="text-primary w-5 h-5" />
+                </button>
+
+                <button
+                  onClick={goToNext}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2 bg-card/90 backdrop-blur-sm rounded-full border border-border shadow-md hover:bg-card transition-colors"
+                  aria-label="Next certificate"
+                >
+                  <ChevronRight className="text-primary w-5 h-5" />
+                </button>
               </div>
 
               {/* Certificate Info Bar */}
@@ -98,7 +112,7 @@ const CertificatesSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Navigation Controls - Arrows and Dots */}
+            {/* Navigation - Arrows on either side of Dots */}
             <div className="flex items-center justify-center gap-4 mt-6">
               <button
                 onClick={goToPrevious}
@@ -107,7 +121,7 @@ const CertificatesSection: React.FC = () => {
               >
                 <ChevronLeft className="text-primary w-5 h-5" />
               </button>
-              
+
               <div className="flex items-center gap-1.5">
                 {certificates.map((_, index) => (
                   <button
@@ -122,7 +136,7 @@ const CertificatesSection: React.FC = () => {
                   />
                 ))}
               </div>
-              
+
               <button
                 onClick={goToNext}
                 className="p-2 bg-card border border-border rounded-full shadow-sm hover:bg-accent transition-colors"
@@ -130,29 +144,6 @@ const CertificatesSection: React.FC = () => {
               >
                 <ChevronRight className="text-primary w-5 h-5" />
               </button>
-            </div>
-          </div>
-
-          {/* Thumbnail Strip */}
-          <div className="mt-8 max-w-4xl mx-auto">
-            <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-              {certificates.map((cert, index) => (
-                <button
-                  key={cert.id}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`flex-shrink-0 w-20 h-14 rounded-lg overflow-hidden border-2 transition-all ${
-                    index === currentIndex
-                      ? 'border-primary shadow-md'
-                      : 'border-border opacity-60 hover:opacity-100'
-                  }`}
-                >
-                  <img
-                    src={cert.image}
-                    alt={language === 'en' ? cert.name : cert.nameBn}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
             </div>
           </div>
         </div>
