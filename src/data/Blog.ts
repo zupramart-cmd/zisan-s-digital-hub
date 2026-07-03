@@ -1,160 +1,127 @@
-// Blog Data - Blog page content (English & Bangla)
+// Blog Data - Social media embeds + Blog posts (English & Bangla)
 
-export const blogPosts = [
+export interface SocialPost {
+  id: number;
+  platform: 'facebook' | 'linkedin';
+  embedUrl: string;
+  title: string;
+  titleBn: string;
+  date: string;
+}
+
+export interface BlogPost {
+  id: number;
+  title: string;
+  titleBn: string;
+  category: string;
+  categoryBn: string;
+  date: string;
+  excerpt: string;
+  excerptBn: string;
+  content: string;
+  contentBn: string;
+  image: string;
+  link?: string;
+}
+
+// Social Media Embedded Posts
+// Facebook: use https://www.facebook.com/plugins/post.php?href=<encoded-post-url>
+// LinkedIn: use https://www.linkedin.com/embed/feed/update/<urn>
+export const socialPosts: SocialPost[] = [
   {
     id: 1,
-    title: "BOBDO - Blood Donation Platform",
-    titleBn: "BOBDO - রক্তদান প্ল্যাটফর্ম",
-    category: "Web Development",
-    categoryBn: "ওয়েব ডেভেলপমেন্ট",
-    date: "2024-01-15",
-    excerpt: "Online blood donation website serving 68k+ community members with 40% reduced response time.",
-    excerptBn: "৬৮ হাজার+ সদস্যদের সেবা দেওয়া অনলাইন রক্তদান ওয়েবসাইট।",
-    image: "https://i.postimg.cc/8CfQNkjN/BOBDO.png",
-    hasVideo: false,
-    link: "https://bobdo.vercel.app",
+    platform: 'facebook',
+    embedUrl: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fridoan.zisan%2Fposts%2Fpfbid02QnEWmuGaHmZoDLoK4mgvQ3TZFj9Tf6yBwJvVjZ7Y8pP1a4mQmZ2C1Z9YSSD5ke5Zl&show_text=true&width=500',
+    title: 'Latest Development Update',
+    titleBn: 'সর্বশেষ ডেভেলপমেন্ট আপডেট',
+    date: '2025-01-15',
   },
   {
     id: 2,
-    title: "HSCian - E-learning for HSC Students",
-    titleBn: "HSCian - এইচএসসি শিক্ষার্থীদের জন্য ই-লার্নিং",
-    category: "Education",
-    categoryBn: "শিক্ষা",
-    date: "2024-01-10",
-    excerpt: "Comprehensive study materials and built-in compilers for HSC students.",
-    excerptBn: "এইচএসসি শিক্ষার্থীদের জন্য বিস্তৃত অধ্যয়ন উপকরণ এবং বিল্ট-ইন কম্পাইলার।",
-    image: "https://i.postimg.cc/KjfkwDnN/HSCian-20250922-011814-0000.png",
-    hasVideo: false,
-    link: "https://hscian.netlify.app",
+    platform: 'linkedin',
+    embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:share:7150000000000000000',
+    title: 'Web Development Journey',
+    titleBn: 'ওয়েব ডেভেলপমেন্ট যাত্রা',
+    date: '2025-01-10',
   },
   {
     id: 3,
-    title: "ZupraMart - E-commerce Platform",
-    titleBn: "ZupraMart - ই-কমার্স প্ল্যাটফর্ম",
-    category: "E-commerce",
-    categoryBn: "ই-কমার্স",
-    date: "2024-01-05",
-    excerpt: "All-in-one shopping platform with daily necessities and source code.",
-    excerptBn: "দৈনন্দিন প্রয়োজনীয় জিনিস এবং সোর্স কোড সহ অল-ইন-ওয়ান শপিং প্ল্যাটফর্ম।",
-    image: "https://zupramart.netlify.app/ZupraMart.jpg",
-    hasVideo: false,
-    link: "https://zupramart.netlify.app",
+    platform: 'facebook',
+    embedUrl: 'https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fridoan.zisan&show_text=true&width=500',
+    title: 'OnonnoBit Agency Launch',
+    titleBn: 'OnonnoBit এজেন্সি লঞ্চ',
+    date: '2025-01-05',
   },
   {
     id: 4,
-    title: "UniConverter - Universal Unit Converter",
-    titleBn: "UniConverter - ইউনিভার্সাল ইউনিট কনভার্টার",
-    category: "Utility",
-    categoryBn: "ইউটিলিটি",
-    date: "2024-01-01",
-    excerpt: "Supports 50+ measurement categories for easy conversions.",
-    excerptBn: "সহজ রূপান্তরের জন্য ৫০+ পরিমাপ বিভাগ সমর্থন করে।",
-    image: "https://i.postimg.cc/qqKYXJwR/uniconverter.png",
-    hasVideo: false,
-    link: "https://uniconverter.netlify.app",
-  },
-  {
-    id: 5,
-    title: "YouthHopeBD - Youth Development Platform",
-    titleBn: "YouthHopeBD - যুব উন্নয়ন প্ল্যাটফর্ম",
-    category: "Social Impact",
-    categoryBn: "সামাজিক প্রভাব",
-    date: "2025-01-05",
-    excerpt: "Platform for youth development and social services empowering young minds.",
-    excerptBn: "যুব উন্নয়ন ও সামাজিক সেবার প্ল্যাটফর্ম যা তরুণ মনকে ক্ষমতায়িত করে।",
-    image: "https://i.postimg.cc/rskLpzPD/IMG-20250916-021919.jpg",
-    hasVideo: false,
-    link: "https://youthhope-bd.netlify.app",
-  },
-  {
-    id: 6,
-    title: "DhunatHub - Local Help Directory",
-    titleBn: "DhunatHub - স্থানীয় সাহায্য ডিরেক্টরি",
-    category: "Community",
-    categoryBn: "সম্প্রদায়",
-    date: "2024-12-20",
-    excerpt: "Connects people with local services in Bogura district.",
-    excerptBn: "বগুড়া জেলায় স্থানীয় সেবার সাথে মানুষদের সংযুক্ত করে।",
-    image: "https://i.postimg.cc/KvXCcTcg/dhunathub.png",
-    hasVideo: false,
-    link: "https://dhunat.netlify.app",
-  },
-  {
-    id: 7,
-    title: "Zpad - Note Taking App",
-    titleBn: "Zpad - নোট টেকিং অ্যাপ",
-    category: "Utility",
-    categoryBn: "ইউটিলিটি",
-    date: "2024-11-15",
-    excerpt: "Markdown note-taking app with categories and tags for organized notes.",
-    excerptBn: "ক্যাটেগরি ও ট্যাগ সহ মার্কডাউন নোট-টেকিং অ্যাপ।",
-    image: "https://i.postimg.cc/vBkkVgWk/zpad.png",
-    hasVideo: false,
-    link: "https://zpad.netlify.app",
-  },
-  {
-    id: 8,
-    title: "ThetaCode - Programming Platform",
-    titleBn: "ThetaCode - প্রোগ্রামিং প্ল্যাটফর্ম",
-    category: "Developer Tools",
-    categoryBn: "ডেভেলপার টুলস",
-    date: "2024-10-10",
-    excerpt: "Online code editor and compiler for multiple programming languages.",
-    excerptBn: "একাধিক প্রোগ্রামিং ভাষার জন্য অনলাইন কোড এডিটর ও কম্পাইলার।",
-    image: "https://i.postimg.cc/kMRkdsCm/thetacode.png",
-    hasVideo: false,
-    link: "https://thetacode.netlify.app",
-  },
-  {
-    id: 9,
-    title: "ToolHub - Developer Utilities",
-    titleBn: "ToolHub - ডেভেলপার ইউটিলিটিজ",
-    category: "Developer Tools",
-    categoryBn: "ডেভেলপার টুলস",
-    date: "2024-09-25",
-    excerpt: "Collection of essential developer tools in one place.",
-    excerptBn: "এক জায়গায় প্রয়োজনীয় ডেভেলপার টুলের সংগ্রহ।",
-    image: "https://i.postimg.cc/vZyRhVpd/toolhub.png",
-    hasVideo: false,
-    link: "https://toolhub-i.netlify.app",
-  },
-  {
-    id: 10,
-    title: "Typing Test - Speed Testing",
-    titleBn: "টাইপিং টেস্ট - স্পিড টেস্টিং",
-    category: "Utility",
-    categoryBn: "ইউটিলিটি",
-    date: "2024-08-15",
-    excerpt: "Test and improve your typing speed with this interactive tool.",
-    excerptBn: "এই ইন্টারেক্টিভ টুল দিয়ে আপনার টাইপিং স্পিড পরীক্ষা করুন।",
-    image: "https://i.postimg.cc/fRCPvgcx/typingtest.png",
-    hasVideo: false,
-    link: "https://typing-i.netlify.app",
-  },
-  {
-    id: 11,
-    title: "Sound Memory Game",
-    titleBn: "সাউন্ড মেমরি গেম",
-    category: "Games",
-    categoryBn: "গেমস",
-    date: "2024-07-20",
-    excerpt: "Fun memory game to test and improve your auditory memory.",
-    excerptBn: "আপনার শ্রবণ স্মৃতি পরীক্ষা করার মজার মেমরি গেম।",
-    image: "https://i.postimg.cc/qvxP57T6/memorygame.png",
-    hasVideo: false,
-    link: "https://mindgame-i.netlify.app",
-  },
-  {
-    id: 12,
-    title: "Snake Game - Classic Arcade",
-    titleBn: "স্নেক গেম - ক্লাসিক আর্কেড",
-    category: "Games",
-    categoryBn: "গেমস",
-    date: "2024-06-10",
-    excerpt: "Classic snake game reimagined with modern web technologies.",
-    excerptBn: "আধুনিক ওয়েব প্রযুক্তি দিয়ে পুনর্নির্মিত ক্লাসিক স্নেক গেম।",
-    image: "https://i.postimg.cc/Jhh2YcxS/snakegame.png",
-    hasVideo: false,
-    link: "https://snake-i.netlify.app",
+    platform: 'linkedin',
+    embedUrl: 'https://www.linkedin.com/embed/feed/update/urn:li:share:7145000000000000000',
+    title: 'BOBDO Platform Milestone',
+    titleBn: 'BOBDO প্ল্যাটফর্মের মাইলফলক',
+    date: '2024-12-20',
   },
 ];
+
+// Written Blog Posts
+export const blogPosts: BlogPost[] = [
+  {
+    id: 1,
+    title: "Building OnonnoBit: My Journey as a Web App Developer",
+    titleBn: "OnonnoBit তৈরি: একজন ওয়েব অ্যাপ ডেভেলপার হিসেবে আমার যাত্রা",
+    category: "Personal Journey",
+    categoryBn: "ব্যক্তিগত যাত্রা",
+    date: "2025-01-15",
+    excerpt: "How I founded OnonnoBit and my mission to build impactful digital solutions for communities in Bangladesh.",
+    excerptBn: "কীভাবে আমি OnonnoBit প্রতিষ্ঠা করেছি এবং বাংলাদেশের সম্প্রদায়গুলির জন্য প্রভাবশালী ডিজিটাল সমাধান তৈরির আমার মিশন।",
+    content: "Founding OnonnoBit was a natural evolution of my passion for building web applications that solve real problems...",
+    contentBn: "OnonnoBit প্রতিষ্ঠা করা ছিল বাস্তব সমস্যা সমাধানকারী ওয়েব অ্যাপ্লিকেশন তৈরির জন্য আমার আবেগের একটি স্বাভাবিক বিবর্তন...",
+    image: "https://ononnobit.vercel.app/icon.png",
+    link: "https://ononnobit.vercel.app",
+  },
+  {
+    id: 2,
+    title: "Chor Koi: Fighting Corruption with Crowd Verification",
+    titleBn: "চোর কই: ক্রাউড ভেরিফিকেশন দিয়ে দুর্নীতির বিরুদ্ধে লড়াই",
+    category: "Civic Tech",
+    categoryBn: "সিভিক টেক",
+    date: "2024-12-10",
+    excerpt: "How the Chor Koi platform uses crowdsourced verification to identify and report corruption in Bangladesh.",
+    excerptBn: "চোর কই প্ল্যাটফর্ম কীভাবে বাংলাদেশে দুর্নীতি চিহ্নিত ও রিপোর্ট করতে ক্রাউডসোর্সড ভেরিফিকেশন ব্যবহার করে।",
+    content: "Corruption is one of the biggest challenges facing developing nations. Chor Koi was born out of a desire to create technology-driven solutions...",
+    contentBn: "দুর্নীতি উন্নয়নশীল দেশগুলির মুখোমুখি সবচেয়ে বড় চ্যালেঞ্জগুলির মধ্যে একটি। চোর কই প্রযুক্তি-চালিত সমাধান তৈরির ইচ্ছা থেকে জন্ম নিয়েছে...",
+    image: "https://chor-koi.vercel.app/favicon.png",
+    link: "https://chor-koi.vercel.app",
+  },
+  {
+    id: 3,
+    title: "BOBDO: Saving Lives Through Technology",
+    titleBn: "BOBDO: প্রযুক্তির মাধ্যমে জীবন বাঁচানো",
+    category: "Healthcare Tech",
+    categoryBn: "স্বাস্থ্যসেবা প্রযুক্তি",
+    date: "2024-11-20",
+    excerpt: "Building the Bogura Online Blood Donation Organization platform to connect donors with recipients in real-time.",
+    excerptBn: "রিয়েল-টাইমে দাতাদের সাথে গ্রহীতাদের সংযোগ স্থাপনে বগুড়া অনলাইন রক্তদান সংগঠন প্ল্যাটফর্ম তৈরি।",
+    content: "The BOBDO platform serves the Bogura community by matching blood donors with those in need through an efficient digital system...",
+    contentBn: "BOBDO প্ল্যাটফর্ম একটি দক্ষ ডিজিটাল সিস্টেমের মাধ্যমে প্রয়োজনীয়দের সাথে রক্তদাতাদের মিলিয়ে বগুড়া সম্প্রদায়ের সেবা করে...",
+    image: "https://bobdo.vercel.app/bobdo.png",
+    link: "https://bobdo.vercel.app",
+  },
+  {
+    id: 4,
+    title: "Modern Web Development with React & TypeScript",
+    titleBn: "React ও TypeScript দিয়ে আধুনিক ওয়েব ডেভেলপমেন্ট",
+    category: "Web Development",
+    categoryBn: "ওয়েব ডেভেলপমেন্ট",
+    date: "2024-10-15",
+    excerpt: "My tech stack and why I chose React with TypeScript, Vite, and Tailwind CSS for building modern web applications.",
+    excerptBn: "আমার টেক স্ট্যাক এবং কেন আধুনিক ওয়েব অ্যাপ্লিকেশন তৈরির জন্য React with TypeScript, Vite, এবং Tailwind CSS বেছে নিয়েছি।",
+    content: "Choosing the right tech stack is crucial for building maintainable and scalable applications. Here's my approach...",
+    contentBn: "রক্ষণাবেক্ষণযোগ্য এবং স্কেলেবল অ্যাপ্লিকেশন তৈরির জন্য সঠিক টেক স্ট্যাক বেছে নেওয়া গুরুত্বপূর্ণ। এই আমার পদ্ধতি...",
+    image: "https://api.microlink.io/?url=https://react.dev&screenshot=true&meta=false&embed=screenshot.url",
+  },
+];
+
+export const blogCategories = {
+  en: ['All', 'Personal Journey', 'Civic Tech', 'Healthcare Tech', 'Web Development'],
+  bn: ['সব', 'ব্যক্তিগত যাত্রা', 'সিভিক টেক', 'স্বাস্থ্যসেবা প্রযুক্তি', 'ওয়েব ডেভেলপমেন্ট'],
+};
