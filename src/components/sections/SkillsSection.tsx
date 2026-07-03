@@ -64,7 +64,7 @@ const SkillsSection: React.FC = () => {
                   ))}
                 </div>
                 {/* Typing speed sub-section for computer skills */}
-                {group.key === 'computer' && 'typing' in group.data && (
+                {group.key === 'computer' && (
                   <div className="mt-4 pt-4 border-t border-border">
                     <div className="flex items-center gap-2 mb-2">
                       <Keyboard size={14} className="text-primary" />
@@ -73,8 +73,8 @@ const SkillsSection: React.FC = () => {
                       </span>
                     </div>
                     <div className="text-xs text-muted-foreground space-y-1">
-                      <p>{language === 'en' ? group.data.typing.bangla : group.data.typing.banglaBn}</p>
-                      <p>{language === 'en' ? group.data.typing.english : group.data.typing.englishBn}</p>
+                      <p>{language === 'en' ? skills.computer.typing.bangla : skills.computer.typing.banglaBn}</p>
+                      <p>{language === 'en' ? skills.computer.typing.english : skills.computer.typing.englishBn}</p>
                     </div>
                   </div>
                 )}

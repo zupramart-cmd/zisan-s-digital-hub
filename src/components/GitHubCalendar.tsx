@@ -1,5 +1,5 @@
 import React from 'react';
-import GitHubCalendarLib from 'react-github-calendar';
+import { default as GitHubCalendarLib } from 'react-github-calendar';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface GitHubCalendarProps {

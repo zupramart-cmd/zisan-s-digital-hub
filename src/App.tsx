@@ -11,11 +11,25 @@ import Footer from "@/components/Footer";
 import Chatbot from "@/components/Chatbot";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
-import Research from "./pages/Research";
+import Projects from "./pages/Projects";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+
+const SectionRoutes = () => (
+  <>
+    <Route path="/" element={<Portfolio />} />
+    <Route path="/profile" element={<Portfolio />} />
+    <Route path="/education" element={<Portfolio />} />
+    <Route path="/professional-development" element={<Portfolio />} />
+    <Route path="/experience" element={<Portfolio />} />
+    <Route path="/certificates" element={<Portfolio />} />
+    <Route path="/skills" element={<Portfolio />} />
+    <Route path="/family" element={<Portfolio />} />
+    <Route path="/contact" element={<Portfolio />} />
+  </>
+);
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -30,15 +44,23 @@ const App = () => (
               <div className="flex-1">
                 <Routes>
                   <Route path="/" element={<Portfolio />} />
+                  <Route path="/profile" element={<Portfolio />} />
+                  <Route path="/education" element={<Portfolio />} />
+                  <Route path="/professional-development" element={<Portfolio />} />
+                  <Route path="/experience" element={<Portfolio />} />
+                  <Route path="/certificates" element={<Portfolio />} />
+                  <Route path="/skills" element={<Portfolio />} />
+                  <Route path="/family" element={<Portfolio />} />
+                  <Route path="/contact" element={<Portfolio />} />
                   <Route path="/blog" element={<Blog />} />
-                  <Route path="/research" element={<Research />} />
+                  <Route path="/projects" element={<Projects />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>
               <Footer />
-              <Chatbot />
               <ScrollToTopButton />
+              <Chatbot />
             </div>
           </BrowserRouter>
         </TooltipProvider>

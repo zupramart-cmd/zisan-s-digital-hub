@@ -135,8 +135,8 @@ const Chatbot: React.FC = () => {
     if (chatbotKeywords.family.some(kw => lowerInput.includes(kw))) {
       return chatbotData.family[lang];
     }
-    if (chatbotKeywords.research.some(kw => lowerInput.includes(kw))) {
-      return chatbotData.research[lang];
+    if (chatbotKeywords.agency.some(kw => lowerInput.includes(kw))) {
+      return chatbotData.agency[lang];
     }
     if (chatbotKeywords.blog.some(kw => lowerInput.includes(kw))) {
       return chatbotData.blog[lang];
