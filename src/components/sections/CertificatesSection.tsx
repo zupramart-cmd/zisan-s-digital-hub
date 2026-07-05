@@ -14,11 +14,11 @@ const CertificatesSection: React.FC = () => {
   const name = (c: typeof active) => (language === 'en' ? c.name : c.nameBn);
 
   return (
-    <section id="certificates" className="py-16 md:py-20">
+    <section id="certifications" className="py-16 md:py-20">
       <div className="container mx-auto px-4">
-        <h2 className="section-title animate-fade-in">{t('certificates.title')}</h2>
+        <h2 className="section-title animate-fade-in">{t('certifications.title')}</h2>
 
-        {/* Main preview - shows full certificate on mobile & desktop */}
+        {/* Main preview */}
         <div className="max-w-4xl mx-auto mt-8">
           <button
             type="button"
@@ -45,28 +45,43 @@ const CertificatesSection: React.FC = () => {
           </button>
         </div>
 
-        {/* Small thumbnails below */}
-        <div className="max-w-5xl mx-auto mt-6">
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-2 sm:gap-3">
+        {/* Single-line thumbnails with horizontal scroll */}
+        <div className="max-w-5xl mx-auto mt-5">
+          <div className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-thin">
             {certificates.map((c, i) => (
               <button
                 key={c.id}
                 type="button"
                 onClick={() => setActiveIndex(i)}
-                className={`bg-card rounded-lg border overflow-hidden transition-all ${
+                className={`shrink-0 snap-start bg-white rounded-md border overflow-hidden transition-all ${
                   i === activeIndex
                     ? 'border-primary ring-2 ring-primary/40'
-                    : 'border-border hover:border-primary/50'
+                    : 'border-border hover:border-primary/50 opacity-70 hover:opacity-100'
                 }`}
                 aria-label={name(c)}
+                style={{ width: 72, height: 52 }}
               >
                 <img
                   src={c.image}
                   alt={name(c)}
                   loading="lazy"
-                  className="w-full h-auto object-contain bg-white"
+                  className="w-full h-full object-contain"
                 />
               </button>
+            ))}
+          </div>
+
+          {/* Indicator dots */}
+          <div className="flex justify-center gap-1.5 mt-3">
+            {certificates.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIndex(i)}
+                aria-label={`Go to certificate ${i + 1}`}
+                className={`h-1.5 rounded-full transition-all ${
+                  i === activeIndex ? 'w-6 bg-primary' : 'w-1.5 bg-muted-foreground/40 hover:bg-muted-foreground/70'
+                }`}
+              />
             ))}
           </div>
         </div>

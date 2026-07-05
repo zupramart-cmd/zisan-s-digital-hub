@@ -12,15 +12,15 @@ const HamburgerIcon: React.FC<{ className?: string }> = ({ className }) => (
 );
 
 const navItems = [
-  { key: 'profile', icon: User, href: '#profile' },
-  { key: 'education', icon: GraduationCap, href: '#education' },
-  { key: 'professionalDev', icon: TrendingUp, href: '#professional-development' },
-  { key: 'experience', icon: Briefcase, href: '#experience' },
-  { key: 'certificates', icon: Award, href: '#certificates' },
-  { key: 'skills', icon: Wrench, href: '#skills' },
-  { key: 'contact', icon: Mail, href: '#contact' },
-  { key: 'projects', icon: FolderKanban, href: '/projects', isRoute: true },
-  { key: 'blog', icon: BookOpen, href: '/blog', isRoute: true },
+  { key: 'profile', icon: User, href: '/profile' },
+  { key: 'education', icon: GraduationCap, href: '/education' },
+  { key: 'skills', icon: Wrench, href: '/skills' },
+  { key: 'experience', icon: Briefcase, href: '/experience' },
+  { key: 'projects', icon: FolderKanban, href: '/projects' },
+  { key: 'learning', icon: TrendingUp, href: '/learning' },
+  { key: 'certifications', icon: Award, href: '/certifications' },
+  { key: 'contact', icon: Mail, href: '/contact' },
+  { key: 'blog', icon: BookOpen, href: '/blog' },
 ];
 
 const Navbar: React.FC = () => {
@@ -39,13 +39,6 @@ const Navbar: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleNavClick = (href: string, isRoute?: boolean) => {
-    if (!isRoute && location.pathname !== '/') {
-      window.location.href = '/' + href;
-    }
-    setIsOpen(false);
-  };
 
   return (
     <nav
