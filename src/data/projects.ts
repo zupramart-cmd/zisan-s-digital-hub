@@ -1,5 +1,17 @@
 // Project catalog - source of truth for /projects and /projects/:slug
 
+import darpanImg from '@/assets/darpan-academy.svg';
+import bitqraftImg from '@/assets/bitqraft.svg';
+import chorKoiImg from '@/assets/chor-koi.svg';
+import bloodmateImg from '@/assets/bloodmate.svg';
+import bobdoImg from '@/assets/bobdo.svg';
+import ziptogramImg from '@/assets/ziptogram.svg';
+import zisanTradersImg from '@/assets/zisan-traders.svg';
+import youthhopebdImg from '@/assets/youthhopebd.svg';
+import zpadImg from '@/assets/zpad.svg';
+import uniconverterImg from '@/assets/uniconverter.svg';
+import portfolioImg from '@/assets/portfolio.svg';
+
 export type Project = {
   slug: string;
   name: string;
@@ -15,9 +27,6 @@ export type Project = {
   offer?: { regular: string; promo: string; note: string };
   image: string;
 };
-
-const shot = (url: string) =>
-  `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
 
 export const projects: Project[] = [
   {
@@ -60,7 +69,7 @@ export const projects: Project[] = [
       promo: "৳5,999",
       note: "Get the complete LMS web app for just ৳5,999 when you provide a video review about OnonnoBit and our founder.",
     },
-    image: shot("https://upcoach.netlify.app"),
+    image: darpanImg,
   },
   {
     slug: "bitqraft",
@@ -97,7 +106,7 @@ export const projects: Project[] = [
       promo: "৳599",
       note: "Get the complete e-commerce web app for just ৳599 when you provide a short video review about our agency.",
     },
-    image: shot("https://bitqraft.netlify.app"),
+    image: bitqraftImg,
   },
   {
     slug: "chor-koi",
@@ -110,7 +119,7 @@ export const projects: Project[] = [
     problem: "Citizens fear reporting corruption due to identity exposure.",
     solution: "Anonymous, secure platform to report corruption with evidence and community verification.",
     tech: ["React", "Firebase", "Tailwind"],
-    image: shot("https://chor-koi.vercel.app"),
+    image: chorKoiImg,
   },
   {
     slug: "bloodmate",
@@ -123,7 +132,7 @@ export const projects: Project[] = [
     problem: "Finding blood donors during emergencies is time-consuming and unreliable.",
     solution: "Instant donor-recipient matching with real-time availability status.",
     tech: ["React", "Firebase", "Tailwind"],
-    image: shot("https://blood-mate.netlify.app"),
+    image: bloodmateImg,
   },
   {
     slug: "bobdo",
@@ -136,7 +145,7 @@ export const projects: Project[] = [
     problem: "Blood donation organizations lack digital presence and management tools.",
     solution: "Complete organizational website with campaign and volunteer management.",
     tech: ["React", "Firebase", "Tailwind"],
-    image: shot("https://bobdo.vercel.app"),
+    image: bobdoImg,
   },
   {
     slug: "ziptogram",
@@ -149,7 +158,7 @@ export const projects: Project[] = [
     problem: "Major social platforms are bloated and privacy-invasive.",
     solution: "Minimalist, privacy-focused social platform for small communities.",
     tech: ["React", "Firebase", "Tailwind"],
-    image: shot("https://micro-media.netlify.app"),
+    image: ziptogramImg,
   },
   {
     slug: "zisan-traders",
@@ -162,7 +171,7 @@ export const projects: Project[] = [
     problem: "Small traders manage inventory manually, leading to errors and losses.",
     solution: "Digital inventory system with automated calculations and reports.",
     tech: ["React", "Firebase", "Tailwind"],
-    image: shot("https://zisan-trader.netlify.app"),
+    image: zisanTradersImg,
   },
   {
     slug: "youthhopebd",
@@ -175,7 +184,7 @@ export const projects: Project[] = [
     problem: "Youth organizations struggle to reach and engage young people digitally.",
     solution: "Modern platform to showcase programs, recruit members, and track impact.",
     tech: ["React", "Firebase", "Tailwind"],
-    image: shot("https://youthhope-bd.netlify.app"),
+    image: youthhopebdImg,
   },
   {
     slug: "zpad",
@@ -186,7 +195,7 @@ export const projects: Project[] = [
     descriptionBn: "মিনিমাল, দ্রুত নোটপ্যাড অ্যাপ — ক্লাউড সিঙ্ক, মার্কডাউন সাপোর্ট।",
     features: ["Rich text editing", "Cloud sync", "Offline mode", "Note organization", "Search", "Export"],
     tech: ["React", "Firebase", "Tailwind"],
-    image: shot("https://zpad.netlify.app"),
+    image: zpadImg,
   },
   {
     slug: "uniconverter",
@@ -197,7 +206,7 @@ export const projects: Project[] = [
     descriptionBn: "ইউনিভার্সাল ইউনিট কনভার্টার — দৈর্ঘ্য, ওজন, তাপমাত্রা, মুদ্রা।",
     features: ["Multiple unit categories", "Real-time conversion", "Currency rates", "History", "Favorites"],
     tech: ["React", "Tailwind"],
-    image: shot("https://uniconverter.netlify.app"),
+    image: uniconverterImg,
   },
   {
     slug: "portfolio",
@@ -208,7 +217,7 @@ export const projects: Project[] = [
     descriptionBn: "ব্যক্তিগত ডেভেলপার পোর্টফোলিও — আধুনিক অ্যানিমেশন এবং প্রজেক্ট শোকেস।",
     features: ["Responsive design", "Smooth animations", "SEO/AEO/GEO optimized", "Bilingual (EN/BN)", "Chatbot"],
     tech: ["React", "TypeScript", "Tailwind", "shadcn/ui"],
-    image: shot("https://ridoan-zisan.netlify.app"),
+    image: portfolioImg,
   },
 ];
 

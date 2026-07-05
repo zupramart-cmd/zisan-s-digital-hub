@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { portfolioData } from '@/data/Portfolio';
@@ -9,7 +9,25 @@ const CertificatesSection: React.FC = () => {
   const { certificates } = portfolioData;
   const [activeIndex, setActiveIndex] = useState(0);
   const [previewOpen, setPreviewOpen] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const thumbsRef = useRef<HTMLDivElement>(null);
 
+  // Auto-advance every 4s
+  useEffect(() => {
+    if (paused || previewOpen) return;
+    const id = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % certificates.length);
+    }, 4000);
+    return () => clearInterval(id);
+  }, [paused, previewOpen, certificates.length]);
+
+  // Keep active thumbnail in view
+  useEffect(() => {
+    const container = thumbsRef.current;
+    if (!container) return;
+    const el = container.children[activeIndex] as HTMLElement | undefined;
+    if (el) el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }, [activeIndex]);
   const active = certificates[activeIndex];
   const name = (c: typeof active) => (language === 'en' ? c.name : c.nameBn);
 
@@ -46,8 +64,15 @@ const CertificatesSection: React.FC = () => {
         </div>
 
         {/* Single-line thumbnails with horizontal scroll */}
-        <div className="max-w-5xl mx-auto mt-5">
-          <div className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-thin">
+        <div
+          className="max-w-5xl mx-auto mt-5"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onTouchStart={() => setPaused(true)}
+          onTouchEnd={() => setPaused(false)}
+        >
+          <div ref={thumbsRef} className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide">
+
             {certificates.map((c, i) => (
               <button
                 key={c.id}
