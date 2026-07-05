@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { portfolioData } from '@/data/Portfolio';
@@ -9,9 +9,26 @@ const CertificatesSection: React.FC = () => {
   const { certificates } = portfolioData;
   const [activeIndex, setActiveIndex] = useState(0);
   const [previewOpen, setPreviewOpen] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const thumbsRef = useRef<HTMLDivElement>(null);
 
-  const active = certificates[activeIndex];
-  const name = (c: typeof active) => (language === 'en' ? c.name : c.nameBn);
+  // Auto-advance every 4s
+  useEffect(() => {
+    if (paused || previewOpen) return;
+    const id = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % certificates.length);
+    }, 4000);
+    return () => clearInterval(id);
+  }, [paused, previewOpen, certificates.length]);
+
+  // Keep active thumbnail in view
+  useEffect(() => {
+    const container = thumbsRef.current;
+    if (!container) return;
+    const el = container.children[activeIndex] as HTMLElement | undefined;
+    if (el) el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }, [activeIndex]);
+
 
   return (
     <section id="certifications" className="py-16 md:py-20">
