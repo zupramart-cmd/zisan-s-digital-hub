@@ -13,15 +13,13 @@ const Portfolio: React.FC = () => {
   return (
     <main>
       <ProfileSection />
-      <ProjectsPreviewSection />
       <EducationSection />
-      <ProfessionalDevSection />
-      <ExperienceSection />
-      <CertificatesSection />
       <SkillsSection />
-      <section className="container mx-auto px-4 pb-4">
-        <GitHubCalendar />
-      </section>
+      <ExperienceSection />
+      <ProjectsPreviewSection />
+      <ProfessionalDevSection />
+      <CertificatesSection />
+      <GitHubCalendar />
       <ContactSection />
     </main>
   );

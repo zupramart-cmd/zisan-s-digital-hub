@@ -16,6 +16,18 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+// Section routes that render the Portfolio page and scroll to the matching section
+const SECTION_PATHS = [
+  "/profile",
+  "/education",
+  "/skills",
+  "/experience",
+  "/learning",
+  "/certifications",
+  "/github",
+  "/contact",
+];
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <LanguageProvider>
@@ -28,6 +40,9 @@ const App = () => (
             <div className="flex-1">
               <Routes>
                 <Route path="/" element={<Portfolio />} />
+                {SECTION_PATHS.map((path) => (
+                  <Route key={path} path={path} element={<Portfolio />} />
+                ))}
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/projects/:slug" element={<ProjectDetail />} />
