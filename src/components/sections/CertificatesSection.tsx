@@ -28,7 +28,8 @@ const CertificatesSection: React.FC = () => {
     const el = container.children[activeIndex] as HTMLElement | undefined;
     if (el) el.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
   }, [activeIndex]);
-
+  const active = certificates[activeIndex];
+  const name = (c: typeof active) => (language === 'en' ? c.name : c.nameBn);
 
   return (
     <section id="certifications" className="py-16 md:py-20">
@@ -63,8 +64,15 @@ const CertificatesSection: React.FC = () => {
         </div>
 
         {/* Single-line thumbnails with horizontal scroll */}
-        <div className="max-w-5xl mx-auto mt-5">
-          <div className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-thin">
+        <div
+          className="max-w-5xl mx-auto mt-5"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onTouchStart={() => setPaused(true)}
+          onTouchEnd={() => setPaused(false)}
+        >
+          <div ref={thumbsRef} className="flex gap-2 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-hide">
+
             {certificates.map((c, i) => (
               <button
                 key={c.id}
