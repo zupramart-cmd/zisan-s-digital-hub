@@ -1,0 +1,146 @@
+# =====================================================
+# robots.txt for Md Ridoan Mahmud Zisan Portfolio
+# https://ridoan-zisan.netlify.app
+# =====================================================
+
+# Allow all search engines and AI crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ridoan-zisan.netlify.app/sitemap.xml
+
+# Allow Google
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+# Allow Bing
+User-agent: Bingbot
+Allow: /
+
+# Allow Yahoo
+User-agent: Slurp
+Allow: /
+
+# Allow Yandex
+User-agent: Yandex
+Allow: /
+
+# Allow Baidu
+User-agent: Baiduspider
+Allow: /
+
+# Allow DuckDuckGo
+User-agent: DuckDuckBot
+Allow: /
+
+# =====================================================
+# AI Crawlers & Answer Engines (AEO & GEO Friendly)
+# =====================================================
+
+# Allow ChatGPT / OpenAI
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+# Allow Google Gemini / Bard
+User-agent: Google-Extended
+Allow: /
+
+# Allow Anthropic Claude
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Allow Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Allow Meta AI
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Allow Microsoft Copilot
+User-agent: CopilotBot
+Allow: /
+
+# Allow DeepSeek
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: Deepseek-Search
+Allow: /
+
+# Allow Mistral
+User-agent: MistralAI-User
+Allow: /
+
+# Allow xAI Grok
+User-agent: xAI-Grok
+Allow: /
+
+User-agent: Grokbot
+Allow: /
+
+# Allow Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# Allow Apple
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Allow Common Crawl (used by many AI models)
+User-agent: CCBot
+Allow: /
+
+# Allow Bytespider (ByteDance/TikTok AI)
+User-agent: Bytespider
+Allow: /
+
+# =====================================================
+# Block unnecessary crawlers / scrapers
+# =====================================================
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# =====================================================
+# Host
+# =====================================================
+Host: https://ridoan-zisan.netlify.app
+
+
+# Sitemap
+Sitemap: https://ridoan-zisan.netlify.app/sitemap.xml
