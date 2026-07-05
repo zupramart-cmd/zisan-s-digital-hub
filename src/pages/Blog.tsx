@@ -1,130 +1,174 @@
-import React, { useState, useEffect } from 'react';
-import { Calendar, Filter, ExternalLink, Facebook } from 'lucide-react';
+import React, { useState } from 'react';
+import { Calendar, Filter, Facebook, Sparkles, BookOpen, Heart, Code2 } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { blogPosts } from '@/data/Blog';
-import { Skeleton } from '@/components/ui/skeleton';
+import { blogPosts, socialEmbeds, type BlogPost } from '@/data/Blog';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from '@/components/ui/dialog';
+
+const categoryIcon: Record<BlogPost['category'], React.ElementType> = {
+  Thoughts: Sparkles,
+  Religion: BookOpen,
+  Development: Code2,
+  Life: Heart,
+};
 
 const Blog: React.FC = () => {
   const { t, language } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>('all');
-  const [isLoading, setIsLoading] = useState(true);
+  const [openPost, setOpenPost] = useState<BlogPost | null>(null);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 500);
-    return () => clearTimeout(timer);
-  }, []);
+  const categories = ['all', ...Array.from(new Set(blogPosts.map((p) => p.category)))];
+  const filtered =
+    activeCategory === 'all' ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
 
-  const categories = ['all', ...new Set(blogPosts.map(post => post.category))];
-  const filteredPosts = activeCategory === 'all'
-    ? blogPosts
-    : blogPosts.filter(post => post.category === activeCategory);
-
-  // Facebook posts to embed (public posts about Ridoan)
-  const facebookPosts = [
-    'https://www.facebook.com/ridoan.zisan/posts/pfbid02rXWMWrxTZzYFwyBqBRP2TFqUyRUVKvMkR3AhK2wRhcFAKvGoDvpB1fSPuh1nP9tzl',
-    'https://www.facebook.com/ridoan.zisan/posts/pfbid0d6yiGnJmMhCwT8s1PScQ2C5vXBoUxSF4hLwuBpaJdY3Q2GYE45FbAFEeaEWJoSVSl',
-  ];
+  const categoryLabel = (c: string) => {
+    if (c === 'all') return language === 'en' ? 'All' : 'সব';
+    const match = blogPosts.find((p) => p.category === c);
+    return language === 'en' ? c : match?.categoryBn || c;
+  };
 
   return (
     <main className="pt-24 pb-16 min-h-screen bg-background">
       <div className="container mx-auto px-4 max-w-6xl">
-        <div className="text-center mb-8 animate-fade-in">
+        <header className="text-center mb-10 animate-fade-in">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
             {t('blog.title')}
           </h1>
           <p className="text-muted-foreground">{t('blog.subtitle')}</p>
-        </div>
+        </header>
 
-        {/* Social Media Embeds */}
+        {/* Social embeds */}
         <section className="mb-14">
           <h2 className="text-xl font-bold text-foreground mb-5 flex items-center gap-2">
             <Facebook size={22} className="text-primary" />
             {language === 'en' ? 'From Social Media' : 'সোশ্যাল মিডিয়া থেকে'}
           </h2>
-          <div className="grid md:grid-cols-2 gap-5">
-            {facebookPosts.map((url, i) => (
-              <div key={i} className="bg-card rounded-xl overflow-hidden shadow-sm border border-border">
-                <iframe
-                  src={`https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(url)}&show_text=true&width=500`}
-                  className="w-full"
-                  style={{ height: 500, border: 'none', overflow: 'hidden' }}
-                  scrolling="no"
-                  frameBorder="0"
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  allowFullScreen
-                  loading="lazy"
-                />
-              </div>
-            ))}
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+            {socialEmbeds.map((e, i) => {
+              const src =
+                e.type === 'video'
+                  ? `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(e.href)}&show_text=true&width=560&t=0`
+                  : `https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(e.href)}&show_text=true&width=500`;
+              return (
+                <div
+                  key={i}
+                  className="bg-card rounded-xl overflow-hidden shadow-sm border border-border"
+                >
+                  <iframe
+                    src={src}
+                    title={`facebook-embed-${i}`}
+                    className="w-full"
+                    style={{ height: e.height || 500, border: 'none', overflow: 'hidden' }}
+                    scrolling="no"
+                    frameBorder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+              );
+            })}
           </div>
         </section>
 
-        {/* Blog posts */}
-        <h2 className="text-xl font-bold text-foreground mb-4">
-          {language === 'en' ? 'Articles & Insights' : 'নিবন্ধ ও অন্তর্দৃষ্টি'}
-        </h2>
+        {/* Articles */}
+        <section>
+          <h2 className="text-xl font-bold text-foreground mb-4">
+            {language === 'en' ? 'Articles & Thoughts' : 'নিবন্ধ ও চিন্তা'}
+          </h2>
 
-        <div className="flex items-center justify-start gap-3 mb-6 flex-wrap">
-          <Filter size={18} className="text-muted-foreground" />
-          <div className="flex flex-wrap gap-2">
-            {categories.map(category => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
-                  activeCategory === category
-                    ? 'bg-primary text-primary-foreground'
-                    : 'bg-accent text-accent-foreground hover:bg-primary/20'
-                }`}
-              >
-                {category === 'all' ? t('blog.all') : (language === 'en' ? category : blogPosts.find(p => p.category === category)?.categoryBn || category)}
-              </button>
-            ))}
+          <div className="flex items-center gap-3 mb-6 flex-wrap">
+            <Filter size={18} className="text-muted-foreground" />
+            <div className="flex flex-wrap gap-2">
+              {categories.map((c) => (
+                <button
+                  key={c}
+                  onClick={() => setActiveCategory(c)}
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all ${
+                    activeCategory === c
+                      ? 'bg-primary text-primary-foreground'
+                      : 'bg-accent text-accent-foreground hover:bg-primary/20'
+                  }`}
+                >
+                  {categoryLabel(c)}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
 
-        {isLoading ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {[1,2,3].map(i => (
-              <Skeleton key={i} className="aspect-video w-full" />
-            ))}
-          </div>
-        ) : (
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredPosts.map((post, index) => (
-              <article
-                key={post.id}
-                className={`bg-card rounded-xl overflow-hidden shadow-sm border border-border card-hover animate-fade-in stagger-${(index % 5) + 1}`}
-              >
-                <div className="aspect-video bg-muted">
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover pointer-events-auto" loading="lazy" />
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="px-2 py-0.5 bg-accent text-accent-foreground text-xs font-medium rounded-full">
-                      {language === 'en' ? post.category : post.categoryBn}
-                    </span>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Calendar size={12} /><span>{post.date}</span>
-                    </div>
+            {filtered.map((post, index) => {
+              const Icon = categoryIcon[post.category] || Sparkles;
+              return (
+                <button
+                  key={post.id}
+                  type="button"
+                  onClick={() => setOpenPost(post)}
+                  className={`text-left bg-card rounded-xl overflow-hidden shadow-sm border border-border card-hover animate-fade-in stagger-${(index % 5) + 1}`}
+                >
+                  <div className="aspect-video bg-gradient-to-br from-primary/10 via-accent/30 to-primary/5 flex items-center justify-center">
+                    <Icon size={48} className="text-primary/70" />
                   </div>
-                  <h3 className="text-base font-bold text-foreground mb-2 line-clamp-2">
-                    {language === 'en' ? post.title : post.titleBn}
-                  </h3>
-                  <p className="text-muted-foreground text-xs line-clamp-2 mb-3">
-                    {language === 'en' ? post.excerpt : post.excerptBn}
-                  </p>
-                  {post.link && (
-                    <a href={post.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-primary hover:underline">
-                      <ExternalLink size={12} />{t('blog.viewProject')}
-                    </a>
-                  )}
-                </div>
-              </article>
-            ))}
+                  <div className="p-4">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="px-2 py-0.5 bg-accent text-accent-foreground text-xs font-medium rounded-full inline-flex items-center gap-1">
+                        <Icon size={12} />
+                        {language === 'en' ? post.category : post.categoryBn}
+                      </span>
+                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                        <Calendar size={12} />
+                        <span>{post.date}</span>
+                      </div>
+                    </div>
+                    <h3 className="text-base font-bold text-foreground mb-2 line-clamp-2">
+                      {language === 'en' ? post.title : post.titleBn}
+                    </h3>
+                    <p className="text-muted-foreground text-xs line-clamp-3">
+                      {language === 'en' ? post.excerpt : post.excerptBn}
+                    </p>
+                    <span className="inline-block mt-3 text-xs text-primary font-medium">
+                      {language === 'en' ? 'Read more →' : 'বিস্তারিত পড়ুন →'}
+                    </span>
+                  </div>
+                </button>
+              );
+            })}
           </div>
-        )}
+        </section>
       </div>
+
+      {/* Reader dialog */}
+      <Dialog open={!!openPost} onOpenChange={(o) => !o && setOpenPost(null)}>
+        <DialogContent className="max-w-2xl max-h-[85vh] overflow-y-auto">
+          {openPost && (
+            <>
+              <DialogHeader>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground mb-2">
+                  <span className="px-2 py-0.5 bg-accent text-accent-foreground rounded-full font-medium">
+                    {language === 'en' ? openPost.category : openPost.categoryBn}
+                  </span>
+                  <Calendar size={12} />
+                  <span>{openPost.date}</span>
+                </div>
+                <DialogTitle className="text-2xl font-bold text-foreground">
+                  {language === 'en' ? openPost.title : openPost.titleBn}
+                </DialogTitle>
+                <DialogDescription className="text-sm">
+                  {language === 'en' ? openPost.excerpt : openPost.excerptBn}
+                </DialogDescription>
+              </DialogHeader>
+              <article className="prose prose-sm max-w-none text-foreground whitespace-pre-line leading-relaxed">
+                {language === 'en' ? openPost.content : openPost.contentBn}
+              </article>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </main>
   );
 };
