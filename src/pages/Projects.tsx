@@ -46,16 +46,12 @@ const Projects: React.FC = () => {
               to={`/projects/${project.slug}`}
               className={`group bg-card rounded-xl overflow-hidden shadow-sm border border-border card-hover animate-fade-in stagger-${(idx % 5) + 1}`}
             >
-              <div className="aspect-video bg-muted overflow-hidden">
+              <div className="aspect-video bg-gradient-to-br from-primary/5 to-accent/40 overflow-hidden flex items-center justify-center p-6">
                 <img
                   src={project.image}
                   alt={project.name}
                   loading="lazy"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src =
-                      'https://via.placeholder.com/600x400/715EB4/ffffff?text=' + encodeURIComponent(project.name);
-                  }}
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
               <div className="p-4">

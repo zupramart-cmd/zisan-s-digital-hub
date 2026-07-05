@@ -22,15 +22,11 @@ const ProjectDetail: React.FC = () => {
         </Link>
 
         <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-md">
-          <div className="aspect-video bg-muted overflow-hidden">
+          <div className="aspect-video bg-gradient-to-br from-primary/5 to-accent/40 overflow-hidden flex items-center justify-center p-10">
             <img
               src={project.image}
               alt={project.name}
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src =
-                  'https://via.placeholder.com/1200x630/715EB4/ffffff?text=' + encodeURIComponent(project.name);
-              }}
+              className="w-full h-full object-contain"
             />
           </div>
 
