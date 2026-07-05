@@ -8,7 +8,7 @@ const ProfessionalDevSection: React.FC = () => {
   const { courses, olympiads } = portfolioData;
 
   return (
-    <section id="professional-development" className="py-16 md:py-20">
+    <section id="learning" className="py-16 md:py-20">
       <div className="container mx-auto px-4">
         <h2 className="section-title animate-fade-in">{t('professionalDev.title')}</h2>
 

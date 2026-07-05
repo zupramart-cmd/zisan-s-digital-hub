@@ -2,7 +2,6 @@ import React from 'react';
 import { Briefcase, Calendar, ExternalLink } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { portfolioData } from '@/data/Portfolio';
-import GitHubCalendar from '@/components/GitHubCalendar';
 
 const ExperienceSection: React.FC = () => {
   const { t, language } = useLanguage();
@@ -68,8 +67,6 @@ const ExperienceSection: React.FC = () => {
             </div>
           ))}
         </div>
-
-        <GitHubCalendar />
       </div>
     </section>
   );
