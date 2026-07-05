@@ -65,28 +65,15 @@ const Navbar: React.FC = () => {
           <div className="hidden lg:flex items-center space-x-1">
             {navItems.map((item) => {
               const Icon = item.icon;
-              if (item.isRoute) {
-                return (
-                  <Link
-                    key={item.key}
-                    to={item.href}
-                    className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-foreground/70 hover:text-primary hover:bg-accent rounded-lg transition-all duration-200"
-                  >
-                    <Icon size={16} />
-                    <span>{t(`nav.${item.key}`)}</span>
-                  </Link>
-                );
-              }
               return (
-                <a
+                <Link
                   key={item.key}
-                  href={item.href}
-                  onClick={() => handleNavClick(item.href)}
+                  to={item.href}
                   className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium text-foreground/70 hover:text-primary hover:bg-accent rounded-lg transition-all duration-200"
                 >
                   <Icon size={16} />
                   <span>{t(`nav.${item.key}`)}</span>
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -118,29 +105,16 @@ const Navbar: React.FC = () => {
             <div className="container mx-auto px-4 py-4 space-y-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
-                if (item.isRoute) {
-                  return (
-                    <Link
-                      key={item.key}
-                      to={item.href}
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-3 px-4 py-3 text-foreground/70 hover:text-primary hover:bg-accent rounded-lg transition-all duration-200"
-                    >
-                      <Icon size={20} />
-                      <span className="font-medium">{t(`nav.${item.key}`)}</span>
-                    </Link>
-                  );
-                }
                 return (
-                  <a
+                  <Link
                     key={item.key}
-                    href={item.href}
-                    onClick={() => handleNavClick(item.href)}
+                    to={item.href}
+                    onClick={() => setIsOpen(false)}
                     className="flex items-center gap-3 px-4 py-3 text-foreground/70 hover:text-primary hover:bg-accent rounded-lg transition-all duration-200"
                   >
                     <Icon size={20} />
                     <span className="font-medium">{t(`nav.${item.key}`)}</span>
-                  </a>
+                  </Link>
                 );
               })}
             </div>

@@ -61,13 +61,13 @@ const ProfileSection: React.FC = () => {
                   <Download size={16} />
                   <span>{language === 'en' ? 'Resume' : 'জীবনবৃত্তান্ত'}</span>
                 </button>
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className="flex items-center justify-center gap-2 px-4 py-2.5 border border-primary text-primary rounded-lg text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all"
                 >
                   <Mail size={16} />
                   <span>{language === 'en' ? 'Contact' : 'যোগাযোগ'}</span>
-                </a>
+                </Link>
                 <Link
                   to="/blog"
                   className="flex items-center justify-center gap-2 px-4 py-2.5 border border-primary text-primary rounded-lg text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-all"

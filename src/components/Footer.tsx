@@ -18,14 +18,15 @@ const Footer: React.FC = () => {
   ];
 
   const quickLinks = [
-    { label: language === 'en' ? 'Profile' : 'প্রোফাইল', href: '/#profile', route: false },
-    { label: language === 'en' ? 'Education' : 'শিক্ষা', href: '/#education', route: false },
-    { label: language === 'en' ? 'Experience' : 'অভিজ্ঞতা', href: '/#experience', route: false },
-    { label: language === 'en' ? 'Certificates' : 'সনদপত্র', href: '/#certificates', route: false },
-    { label: language === 'en' ? 'Skills' : 'দক্ষতা', href: '/#skills', route: false },
-    { label: language === 'en' ? 'Projects' : 'প্রজেক্টস', href: '/projects', route: true },
-    { label: language === 'en' ? 'Blog' : 'ব্লগ', href: '/blog', route: true },
-    { label: language === 'en' ? 'Contact' : 'যোগাযোগ', href: '/#contact', route: false },
+    { label: language === 'en' ? 'Profile' : 'প্রোফাইল', href: '/profile' },
+    { label: language === 'en' ? 'Education' : 'শিক্ষা', href: '/education' },
+    { label: language === 'en' ? 'Skills' : 'দক্ষতা', href: '/skills' },
+    { label: language === 'en' ? 'Experience' : 'অভিজ্ঞতা', href: '/experience' },
+    { label: language === 'en' ? 'Projects' : 'প্রজেক্টস', href: '/projects' },
+    { label: language === 'en' ? 'Learning' : 'লার্নিং', href: '/learning' },
+    { label: language === 'en' ? 'Certifications' : 'সনদপত্র', href: '/certifications' },
+    { label: language === 'en' ? 'Blog' : 'ব্লগ', href: '/blog' },
+    { label: language === 'en' ? 'Contact' : 'যোগাযোগ', href: '/contact' },
   ];
 
   const currentYear = new Date().getFullYear();
@@ -83,15 +84,9 @@ const Footer: React.FC = () => {
             <ul className="grid grid-cols-2 sm:grid-cols-1 gap-x-3 gap-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  {link.route ? (
-                    <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a href={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                      {link.label}
-                    </a>
-                  )}
+                  <Link to={link.href} className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>
